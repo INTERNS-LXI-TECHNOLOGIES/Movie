@@ -3,7 +3,7 @@ public class Tdd
 {
 	public static void main(String[] args)
 	{
-		MovieScript ms=new MovieScript();
-		ms.scriptPlay(ms);
+		Movie movie=new Movie();
+		movie.doMovie();
 	}
 }

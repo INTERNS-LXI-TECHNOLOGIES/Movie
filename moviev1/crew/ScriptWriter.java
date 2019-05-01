@@ -1,13 +1,13 @@
 package com.lxisoft.moviev1.crew;
 import com.lxisoft.moviev1.test.*;
-//import java.io.*;
+import java.io.*;
 import java.util.*;
 public class ScriptWriter 
 {
 	private String name;
-	
-	//InputStreamReader r=new InputStreamReader(System.in);  
-	//BufferedReader br=new BufferedReader(r);
+	Scanner scan=new Scanner(System.in);
+	InputStreamReader r=new InputStreamReader(System.in);  
+	BufferedReader br=new BufferedReader(r);
 	public void setName(String name)
 	{
 		this.name=name;
@@ -18,14 +18,29 @@ public class ScriptWriter
 	}
 	public void writeScript(MovieScript ms)
 	{
-		ms.setTitle("Pookkalam Varavayi");
+		ms.setTitle("Pookaalam Varavayi");
 		ms.getDirector().setName("Lal Jose");
 		name="Lal";
 		ms.setType("Romantic comedy");
-		ms.setCharacters(new ArrayList <Character>());
-		Character c = new Character();
-		c.setCharacterName("Balan");
-		ms.getCharacters.add(c);
+	}
+	public Role addCharacters()
+	{
+		Role role = new Role();
+		try
+		{
+		role.setRoleName(br.readLine());
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		return role;
+	}
+	public void makeScene()
+	{
+		Scene scene=new Scene();
+		scene.setNo(scan.nextInt());
+		
 	}
 	
 	

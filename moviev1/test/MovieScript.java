@@ -1,19 +1,19 @@
 package com.lxisoft.moviev1.test;
 import com.lxisoft.moviev1.crew.*;
 import com.lxisoft.moviev1.cast.*;
-import java.util.ArrayList;
+import com.lxisoft.moviev1.test.*;
+import java.io.*;
+import java.util.*;
 public class MovieScript
 {
 	private String title;
 	private String type;
 	private Director director;
 	private ScriptWriter sw;
-	private ArrayList <Character> characters;
-	private Hero hero;
-	private Heroine heroine;
-	private Comedian comedian;
-	private Villain villain;
+	private ArrayList <Actor> actors;
+	private ArrayList <Role> roles;
 	private ArrayList <Scene> scenes;
+	Scanner scan=new Scanner(System.in);
 	public void setTitle(String title)
 	{
 		this.title=title;
@@ -46,45 +46,21 @@ public class MovieScript
 	{
 		return sw;
 	}
-	public void setCharacters(ArrayList <Character> characters)
+	public void setActors(ArrayList <Actor> actors)
 	{
-		this.characters=characters;
+		this.actors=actors;
 	}
-	public ArrayList <Character> getCharacters()
+	public ArrayList <Actor> getActors()
 	{
-		return characters;
+		return actors;
 	}
-	public void setHero(Hero hero)
+	public void setRoles(ArrayList <Role> roles)
 	{
-		this.hero=hero;
+		this.roles=roles;
 	}
-	public Hero getHero()
+	public ArrayList <Role> getRoles()
 	{
-		return hero;
-	}
-	public void setHeroine(Heroine heroine)
-	{
-		this.heroine=heroine;
-	}
-	public Heroine getHeroine()
-	{
-		return heroine;
-	}
-	public void setComedian(Comedian comedian)
-	{
-		this.comedian=comedian;
-	}
-	public Comedian getComedian()
-	{
-		return comedian;
-	}
-	public void setVillain(Villain villain)
-	{
-		this.villain=villain;
-	}
-	public Villain getVillain()
-	{
-		return villain;
+		return roles;
 	}
 	public void setScenes(ArrayList <Scene> scenes)
 	{
@@ -98,11 +74,120 @@ public class MovieScript
 	{
 	setDirector(new Director());
 	setSw(new ScriptWriter());
-	setHero(new Hero());
-	setHeroine(new Heroine());
-	setComedian(new Comedian());
-	setVillain(new Villain());
+	setRoles(new ArrayList <Role>());
+	setActors(new ArrayList <Actor>());
 	//setScenes(new ArrayList <Scene> scenes());
+	}
+	/*public void  scriptDetails()
+	{
+		File file=new File("characters.txt");
+		FileWriter fw=new FileWriter(file);
+		BufferedWriter bw=new BufferedWriter(fw);
+		try
+		{
+			
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}*/
+	public void characterDetails()
+	{
+		try
+		{
+		File file=new File("roles.txt");
+		FileWriter fw=new FileWriter(file,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+		do
+		{
+		System.out.println("Characters in the movie:");
+		roles.add(sw.addCharacters());
+		System.out.println("Next character press 1");
+		}
+		while(scan.nextInt()==1);
+		//System.out.println(roles.size());
+		for(int i=0;i<roles.size();i++)
+		{
+			bw.write(roles.get(i).getRoleName()+"\n");
+		}
+		bw.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void readCharacters()
+	{
+		try{
+		File file=new File("roles.txt");
+		FileWriter fw=new FileWriter(file,true);
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+				int k=0;	
+				String data;	
+				while((data=br.readLine())!=null)
+				{
+				Role role=new Role();
+				role.setRoleName(data);
+				roles.add(role);
+				}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void castDetails()
+	{
+		try
+		{
+		File file=new File("actors.txt");
+		FileWriter fw=new FileWriter(file,true);
+		BufferedWriter bw=new BufferedWriter(fw);
+		do
+		{
+		System.out.println("actors in the movie:");
+		actors.add(director.selectCast());
+		System.out.println("add actors press 1");
+		}
+		while(scan.nextInt()==1);
+		for(int i=0;i<actors.size();i++)
+		{
+			bw.write(actors.get(i).getName()+"\n");
+		}
+		bw.close();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void readActors()
+	{
+		try{
+		File file=new File("actors.txt");
+		FileWriter fw=new FileWriter(file,true);
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+				int k=0;	
+				String data;	
+				while((data=br.readLine())!=null)
+				{
+				Actor actor=new Actor();
+				actor.setName(data);
+				actors.add(actor);
+				}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void setScene()
+	{
+		
 	}
 	public void scriptPlay(MovieScript ms)
 	{
@@ -113,6 +198,13 @@ public class MovieScript
 		System.out.print("Movie type:"+type+"\n");
 		System.out.println("Cast:");
 		System.out.println("Charactername\t\t\t\tCastname");
+		readCharacters();
+		readActors();
+		
+		for(int i=0;i<roles.size();i++)
+		{
+			System.out.println(roles.get(i).getRoleName()+"\t\t\t\t\t"+actors.get(i).getName());
+		}
 		
 	}
 	

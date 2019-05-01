@@ -1,5 +1,14 @@
 package com.lxisoft.moviev1.cast;
-public interface Actor
+public class Actor
 {
-	public void deliverDialogue();
+	private String name;
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	//public void deliverDialogue();
 }
