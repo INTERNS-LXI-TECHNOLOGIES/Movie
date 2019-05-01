@@ -1,8 +1,7 @@
 import java.io.*;
-class Villain{
-private String Name;
-private String roleName;
-private String role;
+import java .util.*;
+class Villain extends Actor{
+
 
 	
 }

@@ -1,9 +1,9 @@
-
+import java .util.*;
 import java.io.*;
-class Hero{
-private String Name;
-private String roleName;
-private String role;
+class Hero extends Actor{
+
+
+
 
 	
 }

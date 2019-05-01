@@ -1,42 +1,68 @@
 import java.io.*;
+import java.util.*;
 class Director{
-   String name="D";
+  private String name="D";
+  Hero hero =new Hero();
+  Heroine heroine =new Heroine();
+  ScriptWriter scriptWriter=new ScriptWriter();
    public String getName()
    {
 	return this.name;
    }
    public void casting()
    {
-   	 ScriptWriter scriptWriter=new ScriptWriter();
-	 String script=scriptWriter.getScript();
-	 try
+   	 	
+	 String anamelist []={"Mohanlal","Mammotty","Prithiraj","Jayasurya","Nivin Pauly"};
+     String aname=(anamelist[new Random().nextInt(anamelist.length)]);
+     hero.setName(aname);
+     String snamelist []={"Samatha","Samyutha","Nazriya"};
+     aname=(snamelist[new Random().nextInt(snamelist.length)]);
+     
+     heroine.setName(aname);
+     String dnamelist []={"Suraj","Salim Kumar","Jagathish"};
+     aname=(dnamelist[new Random().nextInt(dnamelist.length)]);
+     Comedian comedian =new Comedian();
+     comedian.setName(aname);
+     String fnamelist []={"Sonu","Prakash raj"};
+     aname=(fnamelist[new Random().nextInt(fnamelist.length)]);
+     Villain villain =new Villain();
+     villain.setName(aname);
+	 scriptWriter.script();
+     action();
+      
+   }
+   public void action()
+   {
+   
+   	try
 	 {
-       File file=new File(script);
+       File file=new File("blueprint.txt");
        FileReader fR=new FileReader(file);
-  	   BufferedReader bR=new BufferedReader(fR);
-  	   String line;
-  	   String[] split1=null;
-       String[] split2=null;
-  	   while((line=bR.readLine())!=null)
-  	   {
-  	    split1 = line.split(",");
-  	    if(split1[0].equals("aaa")){
-  	    	System.out.println(split1[1]);
-  	    }
-  	    else if(split1[0].equals("sss"))
-  	    {
-  	    	System.out.println(split1[1]);
-  	    }
-  	}
-         for(int i=0;i<split1.length;i++){
-  	    split2 = split1[i].split("#");
-        }
-        for(int i=0;i<split2.length;i++){System.out.println(split2[i]);}
-	 }
-	 catch(IOException ex)
-	 {
+       BufferedReader bR=new BufferedReader(fR);	
+       String line;  
 
-	 }
+  	   while((line=bR.readLine())!=null)
+  	    {
+        
+	      if(line.equals("Hero"))
+  	      { 	
+  	      	System.out.println(hero.getName()+" : "+scriptWriter.heroDialogue.get(0));
+            scriptWriter.heroDialogue.remove(0);
+  	      }
+  	      else
+  	      {
+  	      	
+  	      	System.out.println(heroine.getName()+" : "+scriptWriter.heroineDialogue.get(0));
+            scriptWriter.heroineDialogue.remove(0);
+  	      }
+  	    }
+  	    FileWriter fileWriter = new FileWriter(file);
+        BufferedWriter bW=new BufferedWriter(fileWriter);
+  	    bW.write(" ");
+  	   
+  	    bW.close();
+     }
+     catch(IOException ex){}
    }
 	
 }

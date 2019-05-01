@@ -1,3 +1,6 @@
-aaa,aaaaaaaaaaaaaaaaa,
-sss,dddddddddddd,
-aaa,ggggggg,
+Hero:Dialogue1.
+Heroine:Dialogue2.
+Hero:Dialogue3.
+Heroine:Dialogue4.
+Hero:Dialogue5.
+Heroine:Dialogue6.
