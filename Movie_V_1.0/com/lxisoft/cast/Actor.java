@@ -1,19 +1,19 @@
-package com.lxisoft.Movie.model;
-class Actor{
+package com.lxisoft.cast;
+public class Actor{
 
-String name;
-String charector;
+private String name;
+private String charector;
 
 public void setName(String name){
 	this.name=name;
 }
-public void getName(){
+public String getName(){
 	return name;
 }
 public void setCharectorName(String charector){
 	this.charector=charector;
 }
-public void getCharectorName(){
+public String getCharectorName(){
 	return charector;
 
 }

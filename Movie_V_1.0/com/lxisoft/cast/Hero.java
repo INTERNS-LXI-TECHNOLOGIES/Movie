@@ -1,4 +1,4 @@
-package com.lxisoft.Movie.model;
+package com.lxisoft.cast;
 class Hero extends Actor{
 	
 	}

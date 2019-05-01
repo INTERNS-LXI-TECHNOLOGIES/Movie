@@ -1,31 +1,29 @@
-package com.lxisoft.Movie.model;
+package com.lxisoft.cast;
 import java.util.*;
-class Cast{
+public class Cast{
 
-ArrayList<Villians> villainNames = new ArrayList<Villains>();
-ArrayList<Comedians> comedianNames = new ArrayList<Comedians>();
-public void create(Villains villainNames,String name,String charectorName){
+private ArrayList<Actor> actors = new ArrayList<Actor>();
 
-villainNames.setName(name);
-villainNames.setCharectorName(charector);
-this.villainNames.add(villainNames);
-}
+
 public void setDetails(){
-	create(new Villain(),"Raju");
-	create(new Villain(),"Prabhu");
-}
-public void create(Comedians comedianNames,String name,String charectorName){
 
-comedianNames.setName(name);
-comedianNames.setCharectorName(charector);
-this.comedianNames.add(comedianNames);
-}
-public void setDetails(){
-	create(new Comedians(),"Pavana";
-	create(new Comedians(),"Anish");
-	create(new Comedians(),"Greeshma");
-	create(new Comedians(),"Akhil");
-	craete(new Comedians(),"Sarath");
+	create(new Villain(),"Raju","srdtr");
+	create(new Villain(),"Prabhu","ddty");
+	create(new Comedian(),"Pavana","ssdsaf");
+	create(new Comedian(),"Anish","dfg");
+	create(new Comedian(),"Greeshma","sdfgh");
+	create(new Comedian(),"Akhil","sdfgh");
+	create(new Comedian(),"Sarath","sdfg");
+	
+	//System.out.println("comedian names:"+actors.getName());
 
 }
+public void create(Actor comedianNames,String name,String charector){
+Actor actors = null;
+actors.setName(name);
+actors.setCharectorName(charector);
+//this.comedianNames.add(comedianNames);
+System.out.println("actores are:"+actors.getName());
+}
+
 }

@@ -9,12 +9,7 @@ Director director;
 ScriptWriter scriptwriter;
 private ArrayList<Scene>scenes;
 
-public void setFilmName(String name){
-	this.name=name;
-}
-public String getFilmName(){
-	return name;
-}
+
 public void setScenes(ArrayList<Scene> scenes){
 	this.scenes=scenes;
 } 

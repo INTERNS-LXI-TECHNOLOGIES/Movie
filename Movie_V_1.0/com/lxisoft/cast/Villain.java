@@ -1,5 +1,5 @@
-package com.lxisoft.Movie.model;
-class Villains extends Actor{
+package com.lxisoft.cast;
+class Villain extends Actor{
 	
 
 

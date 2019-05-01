@@ -1,5 +1,5 @@
-package com.lxisoft.Movie.model;
-class Comedians extends Actor{
+package com.lxisoft.cast;
+class Comedian extends Actor{
 	
 	
 }
