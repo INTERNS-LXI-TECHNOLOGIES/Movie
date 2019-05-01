@@ -21,5 +21,5 @@ public class Cast
 	{
 		return roleName;
 	}
-	
+
 }
