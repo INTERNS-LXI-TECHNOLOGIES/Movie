@@ -35,6 +35,7 @@ public class Movie
 				ms.castDetails();
 				break;
 				case 3:
+				ms.createScenes();
 				break;
 				default:System.out.println("Wrong choice");
 				break;

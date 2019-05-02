@@ -36,13 +36,24 @@ public class ScriptWriter
 		}
 		return role;
 	}
-	public void makeScene()
+	public Scene makeScenes()
 	{
 		Scene scene=new Scene();
 		scene.setNo(scan.nextInt());
+		return scene;
 		
 	}
-	
-	
+	public void makeDialogue(ArrayList <String> dialogues)
+	{
+		try
+		{	
+		for(int i=0;i<5;i++)
+		dialogues.add(br.readLine());
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
 		

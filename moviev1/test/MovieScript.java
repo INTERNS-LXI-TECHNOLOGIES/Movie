@@ -13,6 +13,7 @@ public class MovieScript
 	private ArrayList <Actor> actors;
 	private ArrayList <Role> roles;
 	private ArrayList <Scene> scenes;
+	private ArrayList <String> dialogues;
 	Scanner scan=new Scanner(System.in);
 	public void setTitle(String title)
 	{
@@ -70,28 +71,22 @@ public class MovieScript
 	{
 		return scenes;
 	}
+	public void setDialogues(ArrayList <String> dialogues)
+	{
+		this.dialogues=dialogues;
+	}
+	public ArrayList <String> getDialogues()
+	{                                                                                                                                                                                      
+		return dialogues;
+	}
 	public MovieScript()
 	{
 	setDirector(new Director());
 	setSw(new ScriptWriter());
 	setRoles(new ArrayList <Role>());
 	setActors(new ArrayList <Actor>());
-	//setScenes(new ArrayList <Scene> scenes());
+	setScenes(new ArrayList <Scene>());
 	}
-	/*public void  scriptDetails()
-	{
-		File file=new File("characters.txt");
-		FileWriter fw=new FileWriter(file);
-		BufferedWriter bw=new BufferedWriter(fw);
-		try
-		{
-			
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
-	}*/
 	public void characterDetails()
 	{
 		try
@@ -185,9 +180,34 @@ public class MovieScript
 			e.printStackTrace();
 		}
 	}
-	public void setScene()
+	public void createScenes()
 	{
+		int n=1;
+		do{
+		System.out.print("set secenes in the movie:");
+		scenes.add(sw.makeScenes());
+		try
+		{
+		File file=new File("scene"+n+".txt");
+		file.createNewFile();
+		FileWriter fw=new FileWriter(file);
+		BufferedWriter bw=new BufferedWriter(fw);
+		sw.makeDialogue(dialogues);
+		for(int i=0;i<dialogues.size();i++)
+		{
+		//bw.write(dialogues.getDialogues()+"\n");
+		bw.close();
+		}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 		
+		n++;
+		System.out.print("Create scene press 1");
+		}
+		while(scan.nextInt()==1);
 	}
 	public void scriptPlay(MovieScript ms)
 	{
