@@ -1,21 +1,18 @@
 package com.lxisoft.scriptwriter;
+import com.lxisoft.scene.Scene;
 import com.lxisoft.film.Film;
 import java.util.*;
 public class Script{
 
-//private String name;
-private ArrayList<Scriptwriter> sceneNames = new ArrayList<Scriptwriter>();
+//private String name
+	public ArrayList<Scene> scenes = new ArrayList<Scene>();
+	Scanner scan=new Scanner(System.in);
 
-public void create(){
-	//Film film = new Film();
-	Scriptwriter sceneNames = null;
-	sceneNames.getScene();
-	System.out.println("moviename:"+SceneNames.getScene());
-}
-public void setData(){
-	create(new Scriptwriter(),"fightScene");
-	create(new Scriptwriter(),"romanticScene");
-	create(new Scriptwriter(),"comedyScene");
-	
+public void creatingScene(){
+	Scene s = new Scene();
+	System.out.println("enter the scene number");
+	s.setSceneNumber(scan.nextInt());
+	scenes.add(s);
+	System.out.println(s.getSceneNumber());
 }
 } 

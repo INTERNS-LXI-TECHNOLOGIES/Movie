@@ -1,9 +1,16 @@
 package com.lxisoft.test;
-import com.lxisoft.film.FilmView;
+import com.lxisoft.film.Film;;
+import com.lxisoft.cast.Cast;
+import com.lxisoft.scene.Scene;
+import com.lxisoft.cast.Cast;
+import com.lxisoft.scriptwriter.Script;
+
 class Tdd{
 	
 	public static void main(String[] args){
-	FilmView filmview = new FilmView();
-	filmview.displaymovie();
-	}
+	Film film = new Film();
+	film.displaymovie();
+	Script script=new Script();
+	script.creatingScene();
+}
 }

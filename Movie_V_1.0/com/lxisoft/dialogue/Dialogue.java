@@ -1,4 +1,5 @@
-package com.lxisoft.dialogue;
+ package com.lxisoft.dialogue;
+import com.lxisoft.film.FilmScript;
 import java.util.*;
 public class Dialogue{
 	
@@ -13,11 +14,12 @@ public void creatingDialogues(){
 	System.out.println(data);	
 
 	}
+	}
 	catch(FileNotFoundException e){
 
 	}
 	catch(IOException e){
 
 	}
-}
+} 
 }

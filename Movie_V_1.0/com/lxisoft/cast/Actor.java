@@ -17,4 +17,5 @@ public String getCharectorName(){
 	return charector;
 
 }
+
 }

@@ -2,11 +2,12 @@ package com.lxisoft.scene;
 import java.util.*;
 public class Scene{
 	
-private String name;
-public void setName(String name){
-	this.name=name;
+private int sceneNumber;
+
+public void setSceneNumber(int sceneNumber){
+	this.sceneNumber=sceneNumber;
 }
-public String getName(){
-	return name;
+public int getSceneNumber(){
+	return sceneNumber;
 }
 }
