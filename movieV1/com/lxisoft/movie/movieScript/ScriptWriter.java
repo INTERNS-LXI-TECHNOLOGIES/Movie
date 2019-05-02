@@ -1,7 +1,16 @@
 package com.lxisoft.movie.movieScript;
 public class ScriptWriter
 {
-	public void ScriptCalling()
+	private String name;
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public void scriptCalling()
 	{
     Script script=new Script();
 	script.sceneCalling();
