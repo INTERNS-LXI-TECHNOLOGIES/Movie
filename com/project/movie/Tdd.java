@@ -6,6 +6,7 @@ public class Tdd
  {
  	MovieScript movie=new MovieScript();
  	movie.setDetails();
+ 	movie.createDialogue();
 
  }	
 }

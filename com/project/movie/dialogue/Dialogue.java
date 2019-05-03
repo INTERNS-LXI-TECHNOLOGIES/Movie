@@ -39,4 +39,5 @@ public class Dialogue
 		return negative;
 	}
 	
+	
 }

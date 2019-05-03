@@ -23,7 +23,7 @@ public class MovieScript
 
 	public void setDetails()
 	{
-		System.out.println("Film name     :"+"*"+name+"*");
+		System.out.println("\n\n"+"Film name     :"+"*"+name+"*");
 		createCast((Cast)new Hero(),"Mammooty","Raju");
 		createCast((Cast)new Heroin(),"Nayans","Ammu");
 
@@ -45,11 +45,41 @@ public class MovieScript
 	}
     public void createDialogue()
     {
+    	try{
+
     	String fileName=null;
-    	dialogue= new Dialogue();
-    	dialogue.setComic(new String[3]);
-    	dialogue.getComic()[0] = "";
-    }
+    	File file=new File("Prop.properties");
+    	Properties prop=new Properties();
+    	prop.load(new FileInputStream(file));
+    	String a= prop.getProperty("file");
+    	File f=new File(a);
+    	FileReader fr= new FileReader(f);
+    	BufferedReader br= new BufferedReader(fr);
+    	String line;
+    	int i=0;
+
+    	while((line=br.readLine())!=null)
+    	{
+    		//String[]sp=line.split("$");
+
+    	Dialogue dialogue= new Dialogue();
+    	dialogue.setComic(new String[10]);
+    	dialogue.getComic()[i] = line;
+    	i++;
+    	System.out.println(dialogue.getComic()[(int)Math.random()*9]);
+        }
+       
+        
+     }
+     catch(FileNotFoundException e)
+        {
+        	e.printStackTrace();
+        }
+        catch(IOException e)
+         {
+    		e.printStackTrace();
+           }
+         }
 
 
 }	
