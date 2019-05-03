@@ -1,4 +1,4 @@
-package com.lxisoft.movie.movieScript;
+/*ckage com.lxisoft.movie.movieScript;
 import java.util.*;
 import java.io.*;
 public class Dialogue
@@ -29,5 +29,4 @@ public class Dialogue
 		
 		}
 
-}
-
+}*/
