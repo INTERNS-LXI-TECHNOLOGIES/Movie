@@ -10,7 +10,8 @@ class Tdd{
 	public static void main(String[] args){
 	Film film = new Film();
 	film.displaymovie();
-	Script script=new Script();
-	script.creatingScene();
+	//Script script=new Script();
+	//script.creatingScene();
+	
 }
 }
