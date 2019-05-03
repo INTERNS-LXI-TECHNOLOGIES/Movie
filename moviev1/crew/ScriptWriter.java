@@ -43,17 +43,18 @@ public class ScriptWriter
 		return scene;
 		
 	}
-	public void makeDialogue(ArrayList <String> dialogues)
+	public Dialogue makeDialogue()
 	{
+		Dialogue dialogue=new Dialogue();
 		try
-		{	
-		for(int i=0;i<5;i++)
-		dialogues.add(br.readLine());
+		{
+		dialogue.setLine(br.readLine());
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
+		return dialogue;
 	}
 }
 		

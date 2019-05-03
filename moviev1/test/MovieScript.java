@@ -13,7 +13,7 @@ public class MovieScript
 	private ArrayList <Actor> actors;
 	private ArrayList <Role> roles;
 	private ArrayList <Scene> scenes;
-	private ArrayList <String> dialogues;
+	private ArrayList <Dialogue> dialogues;
 	Scanner scan=new Scanner(System.in);
 	public void setTitle(String title)
 	{
@@ -71,11 +71,11 @@ public class MovieScript
 	{
 		return scenes;
 	}
-	public void setDialogues(ArrayList <String> dialogues)
+	public void setDialogues(ArrayList <Dialogue> dialogues)
 	{
 		this.dialogues=dialogues;
 	}
-	public ArrayList <String> getDialogues()
+	public ArrayList <Dialogue> getDialogues()
 	{                                                                                                                                                                                      
 		return dialogues;
 	}
@@ -86,6 +86,7 @@ public class MovieScript
 	setRoles(new ArrayList <Role>());
 	setActors(new ArrayList <Actor>());
 	setScenes(new ArrayList <Scene>());
+	setDialogues(new ArrayList <Dialogue>());
 	}
 	public void characterDetails()
 	{
@@ -165,8 +166,7 @@ public class MovieScript
 		File file=new File("actors.txt");
 		FileWriter fw=new FileWriter(file,true);
 		FileReader fr=new FileReader(file);
-		BufferedReader br=new BufferedReader(fr);
-				int k=0;	
+		BufferedReader br=new BufferedReader(fr);	
 				String data;	
 				while((data=br.readLine())!=null)
 				{
@@ -182,32 +182,84 @@ public class MovieScript
 	}
 	public void createScenes()
 	{
-		int n=1;
+		Properties p = new Properties();
+		int a = 1;
+		try{
+			
+			p.load(new FileReader("prop.properties"));
+			a = Integer.parseInt(p.getProperty("scene"));
+			System.out.println(a);
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		do{
-		System.out.print("set secenes in the movie:");
-		scenes.add(sw.makeScenes());
+			System.out.print("set secenes in the movie:");
+			scenes.add(sw.makeScenes());
+			
+			try
+			{
+			File file=new File("scene"+a+".txt");
+			file.createNewFile();
+			FileWriter fw=new FileWriter(file,true);
+			BufferedWriter bw=new BufferedWriter(fw);
+			dialogues.clear();
+			do{
+			dialogues.add(sw.makeDialogue());
+			System.out.print("add dialogue press 2:");
+			}while(scan.nextInt()==2);
+			for(int i=0;i<dialogues.size();i++){
+			bw.write(dialogues.get(i).getLine()+"\n");
+			}
+			bw.close();
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+			System.out.print("Create scene press 1:");
+			a++;
+		}
+		
+		while(scan.nextInt()==1);
+		p.setProperty("scene",a+"");
+		try{
+		p.store(new FileWriter("prop.properties"),"");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	public void takeScenes()
+	{
+		System.out.println(scenes.size());
+		int n=1;
+		for(int j=0;j<scenes.size();j++)
+		{
 		try
 		{
 		File file=new File("scene"+n+".txt");
-		file.createNewFile();
-		FileWriter fw=new FileWriter(file);
-		BufferedWriter bw=new BufferedWriter(fw);
-		sw.makeDialogue(dialogues);
-		for(int i=0;i<dialogues.size();i++)
-		{
-		//bw.write(dialogues.getDialogues()+"\n");
-		bw.close();
-		}
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		int k=0;
+		String data;		
+				while((data=br.readLine())!=null)
+				{
+				//String item[]=data.split(";");
+				Dialogue dialogue=new Dialogue();
+				//dialogue.setLine(item[k]);
+				dialogue.setLine(data);
+				dialogues.add(dialogue);
+				}
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
-		
 		n++;
-		System.out.print("Create scene press 1");
 		}
-		while(scan.nextInt()==1);
 	}
 	public void scriptPlay(MovieScript ms)
 	{
@@ -220,12 +272,18 @@ public class MovieScript
 		System.out.println("Charactername\t\t\t\tCastname");
 		readCharacters();
 		readActors();
-		
 		for(int i=0;i<roles.size();i++)
 		{
 			System.out.println(roles.get(i).getRoleName()+"\t\t\t\t\t"+actors.get(i).getName());
 		}
-		
+		takeScenes();
+		for(int j=0;j<scenes.size();j++)
+		{
+			for(int k=0;k<dialogues.size();k++)
+			{
+				System.out.println(dialogues.get(k).getLine()+"\n");
+			}
+		}
 	}
 	
 }
