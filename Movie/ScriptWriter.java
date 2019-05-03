@@ -3,10 +3,7 @@ import java.util.*;
 class ScriptWriter{
   private String script="script.txt";
   private String scriptName="ABCD";
-  ArrayList<String> heroDialogue=new ArrayList<String>();
-	 ArrayList<String> heroineDialogue=new ArrayList<String>();
-	 ArrayList<String> villainDialogue=new ArrayList<String>();
-	  ArrayList<String> comedianDialogue=new ArrayList<String>();
+  
    String name="S";
    public String getName()
    {
@@ -20,14 +17,7 @@ class ScriptWriter{
 	{
 		return this.script;
 	}
-	 public ArrayList<String> getHeroDialogue()
-   {
-	return this.heroDialogue;
-   }
-   public ArrayList<String> getHeroineDialogue()
-   {
-	return this.heroineDialogue;
-   }
+	
 
    public void script()
    {
@@ -37,9 +27,9 @@ class ScriptWriter{
 	 {
        File file=new File(script);
        FileReader fR=new FileReader(file);
-       FileWriter fileWriter = new FileWriter("blueprint.txt");
+      
   	   BufferedReader bR=new BufferedReader(fR);
-  	   BufferedWriter bW=new BufferedWriter(fileWriter);
+  	   
   	   String line;
       
   	   while((line=bR.readLine())!=null)
@@ -49,39 +39,50 @@ class ScriptWriter{
        
 
        if(split[0].equals("Hero")){
-  	    	//System.out.println(split1[1]);System.out.println("**"+Arrays.toString(split1));
-  	    	heroDialogue.add(split[1]);
-  	    	bW.write("Hero\n");
+       	    FileWriter fW = new FileWriter("heroDialogue.csv",true);
+       	    BufferedWriter bW=new BufferedWriter(fW);
+  	    	bW.write(split[1]+"\n");
+  	    	bW.close();
              
   	    }
   	    else if(split[0].equals("Heroine"))
   	    {
-  	    	heroineDialogue.add(split[1]);
-  	    	bW.write("Heroine\n");
-  	    	//System.out.println(split1[1]);
+  	    	FileWriter fW = new FileWriter("heroineDialogue.csv",true);
+       	    BufferedWriter bW=new BufferedWriter(fW);
+  	    	bW.write(split[1]+"\n");
+  	    	bW.close();
   	    }
   	    else if(split[0].equals("Villain"))
   	    {
-  	    	villainDialogue.add(split[1]);
-  	    	//System.out.println(split1[1]);
+  	    	FileWriter fW = new FileWriter("villainDialogue.csv",true);
+       	    BufferedWriter bW=new BufferedWriter(fW);
+  	    	bW.write(split[1]+"\n");
+  	    	bW.close();
   	    }
-  	    else 
+  	    else if(split[0].equals("Comedian"))
   	    {
-  	    	comedianDialogue.add(split[1]);
-  	    	//System.out.println(split1[1]);
+  	    	FileWriter fW = new FileWriter("comedianDialogue.csv",true);
+       	    BufferedWriter bW=new BufferedWriter(fW);
+  	    	bW.write(split[1]+"\n");
+  	    	bW.close();
+  	    }
+  	     else 
+  	    {
+  	    	FileWriter fW = new FileWriter("generalDialogue.csv",true);
+       	    BufferedWriter bW=new BufferedWriter(fW);
+  	    	bW.write(split[1]+"\n");
+  	    	bW.close();
   	    }
         }
-     bW.close();
      
+    
       
 	 }
 	 catch(IOException ex)
 	 {
 
 	 }
-      
-
-	
    }
-
+    
+    
 }

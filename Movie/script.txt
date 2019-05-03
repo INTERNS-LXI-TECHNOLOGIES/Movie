@@ -1,6 +1,37 @@
-Hero:Dialogue1.
-Heroine:Dialogue2.
-Hero:Dialogue3.
-Heroine:Dialogue4.
-Hero:Dialogue5.
-Heroine:Dialogue6.
+Hero:sad,dialogue1
+Hero:sad,dialogue2
+Hero:happy,Ellathinum athintedaaya samayamundu Dasaa
+Hero:romantic,dialogue4
+Hero:mass,Thambi MayilVahanam….Naa Thala ille….Thala Edukaraven
+Hero:mass,Just remember that
+Hero:mass,Chanduviney tholpikkan aavilla makkaley
+Hero:romantic,Iruvazhinji Arabi kadalinullathanekil Kanchana Moideenullatha! Ithu Moideente vakka. Vakkan ettavum valya Sathyam.
+Hero:comedy,Aliyan dev chethu enni ee vitil halwa vangichond varu arude
+Hero:comedy,Vattu annu alle
+Hero:comedy,Lelu Alu.. lelu alu..lelu alu
+Heroine:sad,dialogue10
+Heroine:sad,dialogue11
+Heroine:romantic,dialogue12
+Heroine:romantic,dialogue13
+Heroine:romantic,dialogue14
+Heroine:comedy,dialogue15
+Heroine:mass,Aaogya Naaye, Enneku durgashtami..
+Villain:mass,dialogue16
+Villain:mass,dialogue17
+Villain:mass,dialogue18
+Villain:happy,dialogue19
+Villain:comedy,Angane Pavanayi Shavamayi
+Comedian:happy,Ithentha, enikkumathram prandhayathano atho naatukarkku mothathil prandhayo?
+Comedian:sad,Naale Kavile Paattu malsarathinu kaanam
+Comedian:sad,Kaanan oru look illanne ullu! Bhayankara budhiya!
+Comedian:comedy,Mala.. Mala.. mala.. kunjinte peru mala..
+Comedian:comedy,Make upnu okke uru paruthi ille dey
+Comedian:comedy,Kambli Puthapu.. kambli puthapu…
+Comedian:comedy,ppo shariyakki tharaam
+Comedian:comedy,Entha? Penkuttikalkkinganey simple dress dharikkunna purushanmarey ishtamalley? Don’t they like?
+X:general,Hello
+X:general,Good
+X:general,thank you
+X:general,dialogue31
+X:general,Sorry
+X:general,dialogue33
