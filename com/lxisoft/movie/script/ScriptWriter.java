@@ -1,7 +1,7 @@
-package com.lxisoft.movi.crew;
-import java.util.*;
-import com.lxi.types.*;
+package com.project.movie.script;
 
+import java.util.*;
+import java.io.*;
 public class ScriptWriter
 {
 	private String scriptWriterName;

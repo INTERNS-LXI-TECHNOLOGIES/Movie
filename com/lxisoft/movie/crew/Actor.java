@@ -1,12 +1,11 @@
 package com.lxisoft.movie.crew;
 import java.util.*;
-import com.lxi.types.*;
 
 public class Actor
 {
 	private String actorName;
 	private String characterName;
-	private String characterType;
+	//private String characterType;
 	public void setActorName(String actorName)
 	{
 		this.actorName=actorName;
