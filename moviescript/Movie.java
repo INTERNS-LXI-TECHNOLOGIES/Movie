@@ -21,6 +21,8 @@ return name;
 
 public void playMovie()throws Exception
 {
+	int choice;
+	
 System.out.println(" ");
 System.out.println("             "+getName()+"             ");
 System.out.println(" ");
@@ -30,6 +32,36 @@ System.out.println(" Directed by     :"+director.getName());
 System.out.println(" ");
 director.cast();
 System.out.println(" ");
-writer.script();
+do
+{
+	System.out.println("1.Mass scene");
+	System.out.println("2.Romantic scene");
+	System.out.println("3.Happy scene");
+	System.out.println("4.Sad scene");
+	System.out.println("5.Comedy scene");
+	System.out.println(" ");
+	 System.out.print("Enter your choice:");
+	 choice=scan.nextInt();
+	 System.out.println(" ");
+			    
+				
+				 switch(choice)
+			  {
+				  case 1:writer.script();
+				  break;
+				  case 2:System.out.println("Technical error...!");
+				  break;
+				  case 3:System.out.println("Technical error...!");
+				  break;
+				  case 4:System.out.println("Technical error...!");
+				  break;
+				  case 5:System.out.println("Technical error...!");
+				  break;
+				  default:System.out.println("Invalid choice made...please try again...!!!");
+			
+			  }
+}while(choice>5);
+
+//writer.script();
 }
 }

@@ -16,7 +16,7 @@ return name;
     Hero hero=new Hero();
 	Heroine heroine=new Heroine();
 	Villain villain=new Villain();
-	
+	Comedian comedian=new Comedian();
 public void cast()
 {	
 	hero.setCharacterName("Mohanlal");
@@ -31,10 +31,14 @@ public void cast()
 	villain.setRoleName("Bobby");
 	villain.setRole("Villain");
 	
+	comedian.setCharacterName("Suraj");
+	comedian.setRoleName("Biju");
+	comedian.setRole("Comedy artist");
+	
 	System.out.println(hero.getRole()+": "+hero.getCharacterName()+" as "+hero.getRoleName());
 	System.out.println(heroine.getRole()+": "+heroine.getCharacterName()+" as "+heroine.getRoleName());	
 	System.out.println(villain.getRole()+": "+villain.getCharacterName()+" as "+villain.getRoleName());
-	
+	System.out.println(comedian.getRole()+": "+comedian.getCharacterName()+" as "+comedian.getRoleName());
 }
 
 }
