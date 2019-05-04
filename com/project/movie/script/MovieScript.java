@@ -6,8 +6,9 @@ import java.io.*;
 public class MovieScript
 {
 	
-	private Dialogue dialogue;
-	private List <Cast>castList;
+	private Dialogue dialogue =new Dialogue();
+	private Scriptwritter writter=new Scriptwritter();
+	private List <Cast>castList = new ArrayList<>();
 	public static final String name="CoNtRa";
 
 	private List<Seen>seenList;
@@ -24,6 +25,7 @@ public class MovieScript
 	public void setDetails()
 	{
 		System.out.println("\n\n"+"Film name     :"+"*"+name+"*");
+		writter=new Scriptwritter("Aju Varghese"); 
 		createCast((Cast)new Hero(),"Mammooty","Raju");
 		createCast((Cast)new Heroin(),"Nayans","Ammu");
 
@@ -36,11 +38,14 @@ public class MovieScript
 
 
 	}
+	
 	public void createCast(Cast created, String actorName, String roleName)
 	{
+		
 		Cast c = created;
 		created.setActorName(actorName);
 		created.setRoleName(roleName);
+		castList.add(c);
         System.out.println("\n"+created.getActorName()+" Playing Role as   "+c.getRoleName());
 	}
     public void createDialogue()
@@ -57,19 +62,29 @@ public class MovieScript
     	BufferedReader br= new BufferedReader(fr);
     	String line;
     	int i=0;
+    	dialogue.setComic(new String[10]);
+    	dialogue.setRomantic(new String[10]);
+    	dialogue.setAction(new String[10]);
 
     	while((line=br.readLine())!=null)
     	{
     		//String[]sp=line.split("$");
-
-    	Dialogue dialogue= new Dialogue();
-    	dialogue.setComic(new String[10]);
+	
     	dialogue.getComic()[i] = line;
+    	dialogue.getRmantic()[i]=line;
+    	dialogue.getAction()[i]=line;
     	i++;
-    	System.out.println(dialogue.getComic()[(int)Math.random()*9]);
+    	
         }
-       
-        
+       for(int k=0;k<3;k++)
+       {
+       	for(int j=3;j<5;j++)
+       	{
+
+
+       	System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+" : "+dialogue.getComic()[k]);
+       	}
+       }
      }
      catch(FileNotFoundException e)
         {
@@ -78,6 +93,10 @@ public class MovieScript
         catch(IOException e)
          {
     		e.printStackTrace();
+           }
+           catch(IndexOutOfBoundsException e)
+           {
+           	
            }
          }
 
