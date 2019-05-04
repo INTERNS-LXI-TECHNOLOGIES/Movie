@@ -3,6 +3,7 @@ import com.lxisoft.scriptwriter.ScriptWriter;
 import com.lxisoft.scene.Scene;
 import com.lxisoft.dialogue.Dialogue;
 import java.util.*;
+import java.io.*;
 public class FilmScript{
 	
 private String name;
@@ -34,32 +35,34 @@ public ScriptWriter createScriptwriter(){
 	  
     public void creatingDialogue(){
      
-
-     try{
-     FileReader fR=new FileReader(file);
-     BufferedReader bR=new BufferedReader(fR);
-       
-     String data;
-     while((data = bR.readLine())!=null){
-   			String[] split = data.split(",");
-   			Dialogue dialogue = new Dialogue();
-   			int i=0;
-   			dialogue.setDialogue(split[i]);
-   			dialogues.add(dialogue);
-   		 }
-      }
-      catch(FileNotFoundException e){}
-      catch(IOException e){}
+    try{
+    	String fileName=null;
+    File file=new File("Dialogue.properties");  
       
-	 }
-   public void gettingDialogue(int selectedScene){
-      Properties p = new Properties();
-      try{
-      p.load(new FileReader("Dialogue.properties"));
-      }
-      catch(Exception e){
-      }
-      file = new File(p.getProperty("filename"+seletedScene));
-   }
+    Properties p=new Properties();  
+    p.load(new FileInputStream(file));   
+    String dia=p.getProperty("file");
+     File log=new File(dia);
+     FileReader fR=new FileReader("file");
+  	 BufferedReader bR=new BufferedReader(fR);
+  	 String data;
+  	 int count=0;
+  	 dialogues.add(new Dialogue());
+  	 dialogues.get(0).setComedy(new String[5]);
+  	 while((data = bR.readLine())!= null){
+  	 	dialogues.get(0).getComedy();
+  	 	 System.out.println(data);
+  	 	 System.out.println(dialogues.get(0).getComedy());
+       count++;
+  	 }
+     System.out.println(count);
+  	}
+  	catch(FileNotFoundException e){
+
+  	}
+  	catch(IOException e){
+
+  	}
  
-}//sanjana achu anjana baby
+}
+}

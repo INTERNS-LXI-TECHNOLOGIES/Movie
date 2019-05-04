@@ -1,6 +1,8 @@
+
 package com.lxisoft.film;
 import com.lxisoft.scriptwriter.Script;
 import com.lxisoft.cast.Cast;
+
 public class Film{
 
 public static final String filmName="Manichitrathazhu";
@@ -11,10 +13,10 @@ public static final String filmName="Manichitrathazhu";
 	System.out.println("scriptwriter:"+filmscript.createScriptwriter().getName());
 	Cast cast=new Cast();
 	cast.setDetails();
-	Script s = new Script();
-	s.creatingScene();
-	System.out.println(s.scenes.get(0).getSceneNumber());
-	
+	FilmScript s = new FilmScript();
+	s.creatingDialogue();
+	//System.out.println(s.scenes.get(0).getSceneNumber());
+
 	
 
 
