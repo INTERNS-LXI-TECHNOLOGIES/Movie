@@ -14,6 +14,7 @@ public class MovieScript
 	private ArrayList <Role> roles;
 	private ArrayList <Scene> scenes;
 	private ArrayList <Dialogue> dialogues;
+	Random random;
 	Scanner scan=new Scanner(System.in);
 	public void setTitle(String title)
 	{
@@ -87,6 +88,7 @@ public class MovieScript
 	setActors(new ArrayList <Actor>());
 	setScenes(new ArrayList <Scene>());
 	setDialogues(new ArrayList <Dialogue>());
+	random=new Random();
 	}
 	public void characterDetails()
 	{
@@ -183,7 +185,7 @@ public class MovieScript
 	public void createScenes()
 	{
 		Properties p = new Properties();
-		int a = 1;
+		int a = 0;
 		try{
 			
 			p.load(new FileReader("prop.properties"));
@@ -200,7 +202,7 @@ public class MovieScript
 			
 			try
 			{
-			File file=new File("scene"+a+".txt");
+			File file=new File("scene"+(a+1)+".txt");
 			file.createNewFile();
 			FileWriter fw=new FileWriter(file,true);
 			BufferedWriter bw=new BufferedWriter(fw);
@@ -234,13 +236,16 @@ public class MovieScript
 	}
 	public void takeScenes()
 	{
-		System.out.println(scenes.size());
-		int n=1;
-		for(int j=0;j<scenes.size();j++)
-		{
 		try
 		{
-		File file=new File("scene"+n+".txt");
+		Properties p = new Properties();	
+		p.load(new FileReader("prop.properties"));
+		int a = Integer.parseInt(p.getProperty("scene"));
+		System.out.println(a);
+		int size=a;
+		for(int j=0;j<a;j++)
+		{
+		File file=new File("scene"+(j+1)+".txt");
 		FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
 		int k=0;
@@ -254,11 +259,22 @@ public class MovieScript
 				dialogues.add(dialogue);
 				}
 		}
+		for(int j=0;j<size;j++)
+		{
+			System.out.println("Scene"+size);
+			//int index=random.nextInt(dialogues.size());
+			//Dialogue dialogue = dialogues.get(index);
+			for(int k=0;k<dialogues.size();k++)
+			{
+				System.out.print(roles.get(k).getRoleName()+":");
+				System.out.println(dialogues.get(k).getLine()+"\n");
+				//System.out.println(dialogues.get(index).getLine()+"\n");
+			}
+		}
+		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
-		}
-		n++;
 		}
 	}
 	public void scriptPlay(MovieScript ms)
@@ -277,13 +293,6 @@ public class MovieScript
 			System.out.println(roles.get(i).getRoleName()+"\t\t\t\t\t"+actors.get(i).getName());
 		}
 		takeScenes();
-		for(int j=0;j<scenes.size();j++)
-		{
-			for(int k=0;k<dialogues.size();k++)
-			{
-				System.out.println(dialogues.get(k).getLine()+"\n");
-			}
-		}
 	}
 	
 }
