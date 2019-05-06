@@ -14,7 +14,7 @@ public class Dialogue
 	{
 		this.action=action;
 	}
-	public void SetRomntic(String[] romantic)
+	public void setRomantic(String[] romantic)
 	{
 		this.romantic=romantic;
 	}
@@ -30,7 +30,7 @@ public class Dialogue
 	{
 		return action;
 	}
-	public String[] getromantic()
+	public String[] getRomantic()
 	{
 		return romantic;
 	}
