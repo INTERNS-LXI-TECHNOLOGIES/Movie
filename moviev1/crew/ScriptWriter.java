@@ -56,5 +56,20 @@ public class ScriptWriter
 		}
 		return dialogue;
 	}
+	/*public Role selectCharacters()
+	{
+		System.out.print("Select characters for each scene:");
+		Role role = new Role();
+		try
+		{
+		role.setRoleName(br.readLine());
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		return role;
+		
+	}*/
 }
 		

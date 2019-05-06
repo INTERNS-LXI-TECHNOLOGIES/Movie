@@ -236,6 +236,9 @@ public class MovieScript
 	}
 	public void takeScenes()
 	{
+		//roles.clear();
+		//sw.selectCharacters();
+		
 		try
 		{
 		Properties p = new Properties();	
@@ -245,10 +248,10 @@ public class MovieScript
 		int size=a;
 		for(int j=0;j<a;j++)
 		{
+		dialogues.clear();
 		File file=new File("scene"+(j+1)+".txt");
 		FileReader fr=new FileReader(file);
 		BufferedReader br=new BufferedReader(fr);
-		int k=0;
 		String data;		
 				while((data=br.readLine())!=null)
 				{
@@ -258,17 +261,38 @@ public class MovieScript
 				dialogue.setLine(data);
 				dialogues.add(dialogue);
 				}
-		}
+		/*}
 		for(int j=0;j<size;j++)
-		{
-			System.out.println("Scene"+size);
-			//int index=random.nextInt(dialogues.size());
+		{*/
+			System.out.println("Scene"+(j+1));
+			//System.out.println(dialogues.size());
 			//Dialogue dialogue = dialogues.get(index);
+			List<String> d = new ArrayList<>();
+			int c = 0;
 			for(int k=0;k<dialogues.size();k++)
 			{
 				System.out.print(roles.get(k).getRoleName()+":");
-				System.out.println(dialogues.get(k).getLine()+"\n");
-				//System.out.println(dialogues.get(index).getLine()+"\n");
+				//System.out.println(dialogues.get(k).getLine()+"\n");
+				//int random1 =(int)(Math.random()*dialogues.size());
+				int index=random.nextInt(dialogues.size());
+				//for(int l=0;l<dialogues.size();l++){
+				//System.out.println(d[l]);
+				if(d.isEmpty()){
+					d.add(dialogues.get(index).getLine());
+					System.out.println(dialogues.get(index).getLine());
+				}else{
+					for(int i=0;i<d.size();i++){
+						if(d.get(i)==dialogues.get(index).getLine()){
+							c++;
+						}
+					}
+					if(c==0){
+						d.add(dialogues.get(index).getLine());
+						System.out.println(dialogues.get(index).getLine());
+					}
+				}	
+				//}
+			
 			}
 		}
 		}
