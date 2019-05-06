@@ -1,5 +1,5 @@
 package com.lxisoft.cast;
-class Comedian extends Actor{
+public class Comedian extends Actor{
 	
 	
 }

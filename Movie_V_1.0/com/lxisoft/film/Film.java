@@ -11,10 +11,12 @@ public static final String filmName="Manichitrathazhu";
 	System.out.println("             "+"moviename :"+filmName);
 	System.out.println("directorname:"+filmscript.createDirector().getName());
 	System.out.println("scriptwriter:"+filmscript.createScriptwriter().getName());
+	
 	Cast cast=new Cast();
 	cast.setDetails();
 	FilmScript s = new FilmScript();
-	s.creatingDialogue();
+	s.createDialogue();
+    
 	//System.out.println(s.scenes.get(0).getSceneNumber());
 
 	
