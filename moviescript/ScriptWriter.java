@@ -43,7 +43,7 @@ while((c=bR.readLine())!=null)
 villain.add(c);
 }	
 	
-int i;	
+/*int i;	
 for(i=0;i<2;i++)
 {
 System.out.println("Hero :"+hero.get(i));
@@ -55,9 +55,16 @@ if(i==2)
 {
   System.out.println("Hero :"+hero.get(i));
 }
-}  
-	
-	
+} */
+
+int i;	
+for(i=0;i<3;i++)
+{
+	int dialogue1=(int)(Math.random()*hero.size());
+int dialogue2=(int)(Math.random()*villain.size());
+System.out.println( "Hero :"+hero.get(dialogue1));
+System.out.println("Villain :"+villain.get(	dialogue2));
+}	
 	
 }
 
