@@ -21,30 +21,30 @@ public class Scene
 	  dialogues.get(0).readingFileData();
 	}*/
 	public ArrayList<String> characters=new ArrayList<String>();
-	File f=new File("Villains.txt");
+	//File f=new File("Villains.txt");
 	File fi=new File("hero.txt");
 	File fil=new File("heroine.txt");
 	
-	public void calling()
+	public void scene1()
 	{
 		try
 		{	
 		
-			FileReader fr=new FileReader(f);
-			BufferedReader br=new BufferedReader(fr);
+			//FileReader fr=new FileReader(f);
+	          //BufferedReader br=new BufferedReader(fr);
 			FileReader fR=new FileReader(fi);
 			BufferedReader bR=new BufferedReader(fR);
 			FileReader fRe=new FileReader(fil);
 			BufferedReader bRe=new BufferedReader(fRe);
 			
-		    String a=null;
+		    //String a=null;
             String b=null;
 			String c=null;
-	       while((a=br.readLine())!=null)
+	       /*while((a=br.readLine())!=null)
 	        {
 				characters.add(a);
          //System.out.println("b="+characters.get(0));
-		    }
+		    }*/
 		   while((b=bR.readLine())!=null)
 		   {
 			   characters.add(b);
@@ -58,13 +58,36 @@ public class Scene
 		{
 			z.printStackTrace();
 		}
-		prinding(characters);
-	}
-	public void prinding(ArrayList<String> characters)
-	{
+		
+		System.out.println("ROMANTIC SCENE");
 		for(int i=0;i<characters.size();i++)
 		{
-			System.out.println("villan"+characters.get(i));
+			System.out.println(characters.get(i));
 		}
+		//scene2();
 	}
+	/*public void scene2()
+	{
+		File f=new File("Villains.txt");
+		FileReader fr=new FileReader(f);
+		BufferedReader br=new BufferedReader(fr);
+		String a=null;
+		while((a=br.readLine())!=null)
+	        {
+				characters.add(a);
+         //System.out.println("b="+characters.get(0));
+		    }
+	}*/
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
