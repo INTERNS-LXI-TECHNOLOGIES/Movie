@@ -56,60 +56,88 @@ public class MovieScript
 	}
     public void createDialogue()
     {
-    	int x =0;
-    	try{
-    	for(int i = 1 ;i<=3;i++){
-    	String fileName=null;
-    	//File file=new File("Prop.properties");
-    	Properties prop=new Properties();
-    	prop.load(new FileInputStream("Prop.properties"));
-    
-    	String a= prop.getProperty("file"+i);
-    	File f=new File(a);
-    	FileReader fr= new FileReader(f);
-    	BufferedReader br= new BufferedReader(fr);
-    	String line;
-    	dialogue.setComic(new String[10]);
-    	dialogue.setRomantic(new String[10]);
-    	dialogue.setAction(new String[10]);
+    	int x =0,k=1;
+    	int count =1;
+    	try
+    	{
+	   for(int i=1;i<=3;i++)
+           {
+	    	String fileName=null;
+	    	File file=new File("Prop.properties");
+	    	Properties prop=new Properties();
+	    	prop.load(new FileInputStream("Prop.properties"));
+	    
+	    	String a= prop.getProperty("file"+i);
+	    	//System.out.println(i);
+	    	File f=new File(a);
+
+	    	FileReader fr= new FileReader(f);
+	    	BufferedReader br= new BufferedReader(fr);
+	    	String line;
+	    	dialogue.setComic(new String[10]);
+	    	dialogue.setRomantic(new String[10]);
+	    	dialogue.setAction(new String[10]);
 
     	while((line=br.readLine())!=null)
     	{
-    	System.out.println(line);	//String[]sp=line.split("$");
-	if(a.equals("Comic.csv"))
+    	//System.out.println(line);
+    		//String[]sp=line.split("$");
+	if(i==1)
 	{
-    	System.out.println(dialogue.getComic()[x] = line);
+	 dialogue.getComic()[x] = line;
+	 
+       	System.out.println("\t\t\t\tScene : "+count);
+          for(int j=2;j<5;j++)
+            {
+            	 k=((int)(Math.random()*10));
+
+             System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"     : "+dialogue.getComic()[k++]);
+            }
+         
+
     	}
-    	else if(a.equals("Romantic.csv"))
+
+    	else if(i==2)
     	{
-    	System.out.println(dialogue.getRomantic()[x]=line);
-       }
-       else if(a.equals("Action.csv"))
-       {
-    	dialogue.getAction()[x]=line;
-       }
-    	x++;
-    	
-        }
-  
- 	}
-       for(int k=0;k<3;k++)
-       {
-       	for(int j=3;j<5;j++)
-       	{
-
-
-       	System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+" : "+dialogue.getComic()[k]);
-       	}
-       }
-       for(int k=0;k<2;k++)
-       {
+	    	if(x>=10)
+	    	{
+	    	x=0;
+	    	}
+	    	System.out.println("\t\t\t\tScene :"+count);
+    	 dialogue.getRomantic()[x]=line;
+       
        	for(int j=0;j<5;j++)
        	{
-       		System.out.println(castList.get(j).getRoleName()+" : "+dialogue.getRomantic()[k]);
+       		 k=((int)(Math.random()*10));
+       	System.out.println(castList.get(j).getRoleName()+"     : "+dialogue.getRomantic()[k++]);
+       			
+       	}
+             
+       }
+
+       else if(i==3)
+       {
+       	if(x>=10){
+    		x=0;
+    	}
+    	System.out.println("\t\t\t\tScene :"+count);
+    	   dialogue.getAction()[x]=line;
+    	    
+       	for(int j=5;j<7;j++)
+       	{
+       		 k=((int)(Math.random()*10));
+       	System.out.println(castList.get(j).getRoleName()+"     : "+dialogue.getAction()[k++]);
        			
        	}
        }
+    	x++;
+    	count++;
+    	
+        }
+  	
+ 	}
+       
+       
      }
      catch(FileNotFoundException e)
         {
@@ -121,7 +149,7 @@ public class MovieScript
            }
            catch(IndexOutOfBoundsException e)
            {
-           	
+           	e.printStackTrace();
            }
          }
 
