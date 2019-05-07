@@ -1,11 +1,9 @@
-import java.util.*;
+package com.lxisoft.actors;
 public class Actor 
 {
 private String characterName;
 private String roleName;
 private String role;
-
-Scanner scan=new Scanner(System.in);
 
 public void setCharacterName(String characterName)
 {
@@ -33,8 +31,5 @@ public String getRole()
 {
 return role;
 }
-
-
-
 
 }
