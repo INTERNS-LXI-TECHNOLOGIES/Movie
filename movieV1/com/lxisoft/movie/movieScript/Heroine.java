@@ -1,3 +1,4 @@
-public class Heroine
+package com.lxisoft.movie.movieScript;
+public class Heroine extends Actors
 {
 }

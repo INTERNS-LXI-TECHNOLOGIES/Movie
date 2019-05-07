@@ -1,4 +1,5 @@
-public class Villains
+package com.lxisoft.movie.movieScript;
+public class Villains extends Actors
 {
 
 }
