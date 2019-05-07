@@ -6,37 +6,29 @@ import java.io.*;
 
 public class Script
 {
-	//private List<Scene> sceneList;
-	private Dialogue dialogue;
-	private List<Actor>actorList;
-	public static final String filmName="ABCD";
+
+	//private Dialogue dialogue =new Dialogue();
+	private  String writterName="Benny";
+	private String filmName="ABCD";
+	/*Hero hero=new Hero();
+	Heroine heroine =new Heroine();
+  	Villain villain =new Villain();
+  	Comedian comedian =new Comedian();
+  	Director director=new Director();*/
+  	
+  	ArrayList <String> dialog=new ArrayList <String> ();
+	Scanner scan=new Scanner(System.in);
+	Random Random=new Random();
 	
-	/*public void setSceneList(List<Scene> sceneList)
+	public String getWritterName()
 	{
-		this.sceneList=sceneList;
+		return this.writterName;
 	}
-	public List<Scene> getSceneList()
+	public String getFilmName()
 	{
-		return sceneList;
-	}*/
-
-	public void createCast(Actor actor, String actorName, String characterName)
-	{
-		Actor act=new Actor();
-		act.setActorName(actorName);
-		act.setCharacterName(characterName);
-        System.out.println("\n"+"\t"+"* "+act.getActorName()+" As "+act.getCharacterName());
+		return this.filmName;
 	}
-	public void setActor()
-	{
-		System.out.println("\n\tFilm Name      "+filmName);
-		createCast(new Hero(),"Mammootty","Joseph");
-		createCast(new Heroine(),"Sobhana","Anuradha");
-		createCast(new Villain(),"Murali","Jayakrishnan");
-		createCast(new Villain(),"Devan","Shankar");
-		createCast(new Comedian(),"Harisree Ashokan","Kunjachan");
-		createCast(new Comedian(),"Suraj Venjaramoodu","Pappi");
-	}
-
-
+	
 }
+
+
