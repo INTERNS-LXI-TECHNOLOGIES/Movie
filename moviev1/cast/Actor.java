@@ -10,5 +10,4 @@ public class Actor
 	{
 		return name;
 	}
-	//public void deliverDialogue();
 }

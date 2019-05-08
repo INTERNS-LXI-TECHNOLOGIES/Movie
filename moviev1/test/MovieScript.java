@@ -263,49 +263,23 @@ public class MovieScript
 			System.out.println("Scene"+(j+1));
 			List<String> d = new ArrayList<>();
 			int c = 0;
-			String s=null;
-			for(int k=0;k<dialogues.size();k++)
-			
+			List<String> s=new ArrayList<>();
+			for(int n=0;n<dialogues.size();n++)
 			{
-				int rand=(int)(Math.random()*7);
-				if(s==null){
-				System.out.print(roles.get(rand).getRoleName()+":");
-				}
-				else if(s!=roles.get(rand).getRoleName()){
-				System.out.print(roles.get(rand).getRoleName()+":");}
-				s=roles.get(rand).getRoleName();
-				int index=random.nextInt(dialogues.size());
-				if(d.isEmpty()){
-					d.add(dialogues.get(index).getLine());
-					System.out.println(dialogues.get(index).getLine());
-				}
-				 
-				else{
-					for(int i=0;i<d.size();i++){
-						if(d.get(i)==dialogues.get(index).getLine()){
-							c++;
-						}
-						else if(d.get(i)!=dialogues.get(index).getLine())
-						{
-						d.add(dialogues.get(index).getLine());
-						//System.out.println(dialogues.get(index).getLine());
-						}
-					}
-					System.out.println(dialogues.get(index).getLine());
-					if(c==0){
-						d.add(dialogues.get(index).getLine());
-						System.out.println(dialogues.get(index).getLine());
-					}
-					/*for(int i=0;i<d.size();i++){
-						if(d.get(i)!=dialogues.get(index).getLine()){
-						d.add(dialogues.get(index).getLine());
-						System.out.println(dialogues.get(index).getLine());
-						break;
-						}
-						else if(d.get(i)==dialogues.get(index).getLine()){break;}
-						if(d.size()==25){break;}
-					}	*/				
-				}	
+				s.add(roles.get(n).getRoleName());
+			}
+			Collections.shuffle(s);
+			for(int k=0;k<dialogues.size();k++)
+			{
+				
+				d.add(dialogues.get(k).getLine());
+				
+			}
+			Collections.shuffle(d);
+			for(int l=0;l<d.size();l++)
+			{
+			System.out.print(s.get(l)+":");
+			System.out.println(d.get(l));	
 			}
 		}
 		}
