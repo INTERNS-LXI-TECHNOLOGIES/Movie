@@ -39,7 +39,7 @@ class ScriptWriter{
        
 
        if(split[0].equals("Hero")){
-       	    FileWriter fW = new FileWriter("heroDialogue.csv",true);
+       	    FileWriter fW = new FileWriter("HeroDialogue.csv",true);
        	    BufferedWriter bW=new BufferedWriter(fW);
   	    	bW.write(split[1]+"\n");
   	    	bW.close();
@@ -47,32 +47,26 @@ class ScriptWriter{
   	    }
   	    else if(split[0].equals("Heroine"))
   	    {
-  	    	FileWriter fW = new FileWriter("heroineDialogue.csv",true);
+  	    	FileWriter fW = new FileWriter("HeroineDialogue.csv",true);
        	    BufferedWriter bW=new BufferedWriter(fW);
   	    	bW.write(split[1]+"\n");
   	    	bW.close();
   	    }
   	    else if(split[0].equals("Villain"))
   	    {
-  	    	FileWriter fW = new FileWriter("villainDialogue.csv",true);
+  	    	FileWriter fW = new FileWriter("VillainDialogue.csv",true);
        	    BufferedWriter bW=new BufferedWriter(fW);
   	    	bW.write(split[1]+"\n");
   	    	bW.close();
   	    }
-  	    else if(split[0].equals("Comedian"))
+  	    else
   	    {
-  	    	FileWriter fW = new FileWriter("comedianDialogue.csv",true);
+  	    	FileWriter fW = new FileWriter("ComedianDialogue.csv",true);
        	    BufferedWriter bW=new BufferedWriter(fW);
   	    	bW.write(split[1]+"\n");
   	    	bW.close();
   	    }
-  	     else 
-  	    {
-  	    	FileWriter fW = new FileWriter("generalDialogue.csv",true);
-       	    BufferedWriter bW=new BufferedWriter(fW);
-  	    	bW.write(split[1]+"\n");
-  	    	bW.close();
-  	    }
+  	   
         }
      
     

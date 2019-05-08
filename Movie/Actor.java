@@ -1,9 +1,18 @@
 import java.io.*;
 import java.util.*;
 class Actor{
+  int numberOfActor;
 private String name;
 private String roleName;
 private String role;
+public void setRole(String role)
+{
+  this.role=role;
+}
+public String getRole()
+{
+  return this.role;
+}
 public String  getName()
 {
 	return this.name;
@@ -12,17 +21,31 @@ public void  setName(String name)
 {
 	 this.name=name;
 }
+public int  getnumberOfActor()
+{
+  return this.numberOfActor;
+}
+public void  setnumberOfActor(int numberOfActor)
+{
+   this.numberOfActor=numberOfActor;
+}
+public void  setRoleName(String roleName)
+{
+   this.roleName=roleName;
+}
+
 	public String  getRoleName()
 {
 	return this.roleName;
 }
-public String deliverDialogue(String file1,String type)
+public String deliverDialogue(String type)
      {
+      String file1=this.getRole();
      	String file2=file1+"Dialogue.csv";
      	 String line=null;
        try{
-       	File file=new File(file2);
-          FileReader fR=new FileReader(file);
+       	
+          FileReader fR=new FileReader(file2);
      ArrayList <String> dialogue=new ArrayList <String> ();
      BufferedReader bR=new BufferedReader(fR);
      
@@ -35,18 +58,26 @@ public String deliverDialogue(String file1,String type)
             	
             	dialogue.add(split[1]);
             }
-         else if(split[0].equals("general"))
-            dialogue.add(split[1]);
+        // else if(split[0].equals("general"))
+        //    dialogue.add(split[1]);
         else
              {
-             	dialogue.add("Mmm....");
              }
   	     }
-
+        int xx=dialogue.size();
+        // System.out.println("$$"+xx);
+         if(xx<=0){
+          line="Hai";
+         }
+          else{
   	     Collections.shuffle(dialogue); 
-  	    line=dialogue.get(0);    
+  	    line=dialogue.get(0);
+        }  
+       
+
          }
          catch(IOException ex){}
+        
          return line;
      }
 

@@ -1,98 +1,137 @@
 import java.io.*;
 import java.util.*;
 class Director{
-  private String name="D";
-  Hero hero =new Hero();
-  Heroine heroine =new Heroine();
-  Villain villain =new Villain();
-  Comedian comedian =new Comedian();
-  General general= new General();
-  ScriptWriter scriptWriter=new ScriptWriter();
+   private String name="D";
+   ArrayList<Actor> actorslist=new ArrayList<Actor>(); 
+   ScriptWriter scriptWriter=new ScriptWriter();
+   Scanner in =new Scanner(System.in);
    public String getName()
    {
-	return this.name;
+	   return this.name;
    }
-   public void casting()
+   public void casting() 
    {
-   	 	
-	 String anamelist []={"Mohanlal","Mammotty","Prithiraj","Jayasurya","Nivin Pauly","Kunchacko Boban"};
-     String aname=(anamelist[new Random().nextInt(anamelist.length)]);
-     hero.setName(aname);
-
-     String snamelist []={"Samatha","Samyutha","Nazriya","Anu Sithara"};
-     aname=(snamelist[new Random().nextInt(snamelist.length)]);
-     heroine.setName(aname);
-
-     String dnamelist []={"Suraj","Salim Kumar","Jagathish"};
-     aname=(dnamelist[new Random().nextInt(dnamelist.length)]);
-     comedian.setName(aname);
-
-     String fnamelist []={"Sonu","Prakash raj"};
-     aname=(fnamelist[new Random().nextInt(fnamelist.length)]);
-     villain.setName(aname);
-
-     String gnamelist []={"Character1","Character2","Character3"};
-     aname=(gnamelist[new Random().nextInt(snamelist.length)]);
-     general.setName(aname);
-     System.out.println("Casting\nHero:"+hero.getName()+"\nHeroine:"+heroine.getName()+"\nVillain:"+villain.getName()+"\nComedian:"+comedian.getName()+"\nOthers:"+general.getName());
-     // String characters []={hero.getName(),heroine.getName(),villain.getName(),comedian.getName(),general.getName()}
+   	 	Random rand=new Random();
+      int n1=rand.nextInt(2)+1;     
+      System.out.println(n1+" Hero");
+      int n2=rand.nextInt(2)+1;
+      System.out.println(n2+" Heroine");
+      int n3=rand.nextInt(3)+1;
+      System.out.println(n3+" Villain");
+      int n4=rand.nextInt(3)+2; 
+      System.out.println(n4+" Comedian");
+      System.out.println("\nEnter the Details:");
+      readHero(n1);   
+      readHeroine(n2);
+      readVillain(n3);
+      readComedian(n4);
       scriptWriter.script();
-     //scriptWriter.clearFileData(f);
-
-
    }
    public void action(String type,int dialogue)
-   {
+   { 
+    String previousDialogue=null,previousName=null;
    	for(int j=0;j<dialogue;j++)
 		    {
-		    	String name=null;
-		    	String list []={"hero","heroine","villian","comedian","general"};
-                String teller=(list[new Random().nextInt(list.length)]); 
-                 Actor a=new Actor();
-                String dialogueSaid=a.deliverDialogue(teller,type);
-                if(teller.equals("hero"))
-                {
-                	name=hero.getName();
-                }
-               else if(teller.equals("heroine"))
-                {
-                	name=heroine.getName();
-                }
-               else if(teller.equals("villain"))
-                {
-                	name=villain.getName();
-                }
-                else if(teller.equals("comedian"))
-                {
-                	name=comedian.getName();
-                }
-                else{
-                	name=general.getName();
-                }
-                System.out.println("\n"+name+":"+dialogueSaid);
-
+		    	String name=null; 
+		      Actor a=new Actor();
+          a =(actorslist.get(new Random().nextInt(actorslist.size()))); 
+          String dialogueSaid=a.deliverDialogue(type);
+          String rol=a.getRoleName();
+          try{
+             name=a.getName();
+             if(name.equals(previousName)&&dialogueSaid.equals(previousDialogue))
+                { throw new DuplicationException("Duplicated!!\n");
+                 }
+             previousDialogue=dialogueSaid;
+             previousName=name;
+             System.out.println("\n"+rol+"("+name+"):"+dialogueSaid);
+            }
+            catch(DuplicationException de)
+            {
+              System.out.print(de.getMessage());j--;
+            }
+          
 		    }
-    
-    
    }
    public void cut()
      { 
-     	String list []={"hero","heroine","villian","comedian","general"};
+     	String list []={"Hero","Heroine","Villian","Comedian","General"};
      	for(int i=0;i<list.length;i++)
      	{
      		String s=list[i];
-     	String file=s+"Dialogue.csv";
-     	try{
-     	    FileWriter fW = new FileWriter(file);
+     	  String file=s+"Dialogue.csv";
+     	   try{
+     	      FileWriter fW = new FileWriter(file);
        	    BufferedWriter bW=new BufferedWriter(fW);
-  	    	bW.write(" ");
-  	    	bW.close();
+  	       	bW.write(" ");
+  	    	  bW.close();
   	        }
-  	       catch(IOException ex){
-
-  	       } 
-
+  	     catch(IOException ex){
+  	        } 
      	}
      }
-	
+     public void readHero(int index)
+     {
+       for(int i=1;i<= index;i++)
+        {
+         Hero hero =new Hero();
+         System.out.print("Hero "+i+"\nReal Name:");
+         String realname = in.nextLine(); 
+         hero.setName(realname);
+         System.out.print("Role Name:");
+         String rolename = in.nextLine(); 
+         hero.setRoleName(rolename);
+         String role="Hero";
+         hero.setRole(role);
+         actorslist.add(hero);
+        }
+     }
+     public void readHeroine(int index)
+     {
+       for(int i=1;i<= index;i++)
+        {
+         Heroine heroine =new Heroine();
+         System.out.print("Heroine "+i+"\nReal Name:");
+         String realname = in.nextLine(); 
+         heroine.setName(realname);
+         System.out.print("Role Name:");
+         String rolename = in.nextLine(); 
+         heroine.setRoleName(rolename);
+         String role="Heroine";
+         heroine.setRole(role);
+         actorslist.add(heroine);
+        }
+     } 
+     public void readVillain(int index)
+     {
+       for(int i=1;i<= index;i++)
+        {
+         Villain villain =new Villain();
+         System.out.print("Villain "+i+"\nReal Name:");
+         String realname = in.nextLine(); 
+         villain.setName(realname);
+         System.out.print("Role Name:");
+         String rolename = in.nextLine(); 
+         villain.setRoleName(rolename);
+         String role="Villain";
+         villain.setRole(role);
+         actorslist.add(villain);
+        }
+     }
+     public void readComedian(int index)
+     {
+       for(int i=1;i<= index;i++)
+        {
+         Comedian comedian =new Comedian();
+         System.out.print("Comedian "+i+"\nReal Name:");
+         String realname = in.nextLine(); 
+         comedian.setName(realname);
+         System.out.print("Role Name:");
+         String rolename = in.nextLine();  
+         comedian.setRoleName(rolename);
+         String role="Comedian";
+         comedian.setRole(role);
+         actorslist.add(comedian);
+        }
+     }    
 }
