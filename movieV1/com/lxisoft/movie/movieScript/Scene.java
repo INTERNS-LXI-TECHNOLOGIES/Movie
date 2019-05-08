@@ -6,12 +6,40 @@ import java.util.*;
 public class Scene
 {
 public ArrayList<String> dialogue=new ArrayList<String>();
-	File fi=new File("hero.txt");
+	public void createScene()
+	{ 
+		File f;
+	     try
+		 {
+			for(int i=0;i<4;i++)
+			  {
+				Properties p=new Properties();
+				p.load(new FileInputStream("prop.properties"));
+				String a = p.getProperty("file"+i);
+				f=new File(a);
+				FileReader fr=new FileReader(f);
+				BufferedReader br=new BufferedReader(fr);
+				String data=null;
+					while((data=br.readLine())!=null)
+					  {
+					 dialogue.add(data);
+					 System.out.println("dialogue"+dialogue);
+					  }
+			   }
+	      } 
+		 catch(Exception x)
+		 {
+			 System.out.println("Exception.........");
+		 }
+	}
+	/*File fi=new File("hero.txt");
 	File fil=new File("heroine.txt");
 	public void scene1()
 	{
+	
 		try
 		{
+			
 			
 			FileReader fR=new FileReader(fi);
 			BufferedReader bR=new BufferedReader(fR);
@@ -67,5 +95,5 @@ public ArrayList<String> dialogue=new ArrayList<String>();
 				
 				System.out.println(dialogue.get(i));
 			}
-		}
+		}*/
 }		

@@ -6,6 +6,7 @@ public class Script
 	    System.out.println("DIRECTOR~  Rajpal");
 		System.out.println("SCRIPTWRITER~  Mouly");
         Scene scene=new Scene();
-	    scene.scene1();
+	    scene.createScene();
+		
    }
 }
