@@ -48,15 +48,15 @@ do
 				  case 1:type="mass";
 				  writer.script(type);
 				  break;
-                  case 2:type="romance";
+                  case 2:type="romantic";
 				  writer.script(type);
 				  break;
-				 /* case 3:type="sad";
+				  case 3:type="sad";
 				  writer.script(type);
 				  break;
 				  case 4:type="comedy";
 				  writer.script(type);
-				  break;*/
+				  break;
 				  default:System.out.println("Invalid choice made...please try again...!!!");
 			
 			  }
