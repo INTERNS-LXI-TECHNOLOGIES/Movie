@@ -139,22 +139,35 @@ public class MovieScript
 	}
 	public void castDetails()
 	{
+		int index=0;
 		try
 		{
 		File file=new File("actors.txt");
 		FileWriter fw=new FileWriter(file,true);
 		BufferedWriter bw=new BufferedWriter(fw);
-		do
-		{
+		do{
 		System.out.println("actors in the movie:");
+		System.out.println("1.Hero\n2.Heroine\n3.Comedian\n4.Villain");
 		actors.add(director.selectCast());
 		System.out.println("add actors press 1");
 		}
 		while(scan.nextInt()==1);
+		if(roles.size()!=actors.size())
+		{
+			try{
+			throw new MyException("Not casting actors for all characters");
+			}
+			catch(MyException m)
+			{
+				m.printStackTrace();
+			}
+		}
 		for(int i=0;i<actors.size();i++)
 		{
+			//System.out.println(actors.get(i).getName());
 			bw.write(actors.get(i).getName()+"\n");
 		}
+		
 		bw.close();
 		}
 		catch(IOException e)
