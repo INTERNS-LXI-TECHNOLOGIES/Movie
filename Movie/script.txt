@@ -11,11 +11,8 @@ Hero:mass,May be we are poors, coolies, trolly pullers, but not beggers
 Hero:comedy,Aliyan dev chethu enni ee vitil halwa vangichond varu arude
 Hero:comedy,Vattu annu alle
 Hero:comedy,Lelu Alu.. lelu alu..lelu alu
-Hero:general,Hello
-Hero:general,Good
 Hero:general,thank you
 Hero:general,Sorry
-Hero:general,Welcome
 Hero:general,good bye
 Hero:sad,Sir... Jeevikkan ippol oru moham thonnunnu... athukondu chodikkuva! Enne kollathirikkan pattumo?
 Heroine:happy,dialogue9
@@ -25,21 +22,14 @@ Heroine:romantic,dialogue13
 Heroine:romantic,dialogue14
 Heroine:comedy,dialogue15
 Heroine:mass,Aaogya Naaye, Enneku durgashtami..
-Heroine:general,Hello
-Heroine:general,Good
 Heroine:general,thank you
 Heroine:general,Sorry
-Heroine:general,Welcome
 Heroine:general,good bye
-Villain:general,Hello
-Villain:general,Good
 Villain:general,thank you
 Villain:general,Sorry
-Villain:general,Welcome
 Villain:general,good bye
 Villain:mass,dialogue16
 Villain:mass,dialogue17
-Villain:general,Hello
 Villain:sad,kollanam
 Villain:happy,dialogue19
 Villain:comedy,Angane Pavanayi Shavamayi
@@ -53,10 +43,7 @@ Comedian:comedy,Kambli Puthapu.. kambli puthapu…
 Comedian:comedy,eppo shariyakki tharaam
 Comedian:comedy,Entha? Penkuttikalkkinganey simple dress dharikkunna purushanmarey ishtamalley? Don’t they like?
 Comedian:comedy,Polandine patti oraksharam mindaruthu!
-Comedian:general,Hello
-Comedian:general,Good
 Comedian:general,thank you
 Comedian:general,Sorry
-Comedian:general,Welcome
 Comedian:general,good bye
 Comedian:romantic,dialogue2

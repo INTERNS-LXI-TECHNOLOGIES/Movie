@@ -53,7 +53,7 @@ public String deliverDialogue(String type)
   	    {
   	    String[] split = line.split(",");
   	     
-  	    if(split[0].equals(type)) 
+  	    if((split[0].equals(type)) ||(split[0].equals("general")) )
             {
             	
             	dialogue.add(split[1]);
@@ -70,8 +70,10 @@ public String deliverDialogue(String type)
           line="Hai";
          }
           else{
-  	     Collections.shuffle(dialogue); 
-  	    line=dialogue.get(0);
+             Random rand=new Random();
+              int p=rand.nextInt(dialogue.size());
+  	    
+  	    line=dialogue.get(p);
         }  
        
 

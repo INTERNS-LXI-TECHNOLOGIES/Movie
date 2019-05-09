@@ -39,7 +39,7 @@ class Director{
           String rol=a.getRoleName();
           try{
              name=a.getName();
-             if(name.equals(previousName)&&dialogueSaid.equals(previousDialogue))
+             if((name.equals(previousName)&&dialogueSaid.equals(previousDialogue))||(dialogueSaid.equals(previousDialogue)))
                 { throw new DuplicationException("Duplicated!!\n");
                  }
              previousDialogue=dialogueSaid;
@@ -48,7 +48,8 @@ class Director{
             }
             catch(DuplicationException de)
             {
-              System.out.print(de.getMessage());j--;
+              System.out.print(de.getMessage());
+              j--;
             }
           
 		    }

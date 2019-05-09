@@ -2,12 +2,64 @@ import java.io.*;
 import  java.util.*;
 public class Movie
 {
+	int scene;
+	Random rand=new Random();
+	ArrayList<String> sceneslist=new ArrayList<String>();
+	 String scenes[]={"sad","happy","comedy","mass","romantic"};
+	 Director director=new Director(); 
 	public void playMovie(){
 		Scanner in =new Scanner(System.in);
-		ScriptWriter scriptWriter=new ScriptWriter();
+		display();	    
+	    scene=rand.nextInt(5)+5;
+		System.out.println("Movie has "+scene+" Scene");
+		String type=null;
+		System.out.print("\n1.Sad\n2.Happy\n3.Comedy\n4.Mass\n5.Romantic\nSelect the Movie type:");
+		int choice=in.nextInt();
+		
+		switch(choice)
+		    {
+		    	case 1:type="sad";Sceneslist(choice,type);break;
+		    	case 2:type="happy";Sceneslist(choice,type);break;
+		    	case 3:type="comedy";Sceneslist(choice,type);break;
+		    	case 4:type="mass";Sceneslist(choice,type);break;
+		    	case 5:type="romantic";Sceneslist(choice,type);break;
+		    	default: System.out.print("Error!!");break;
+		    }
+		    System.out.println(sceneslist);
+		director.casting();
+		for(int i=1;i<=scene;i++)
+		   {int y=i-1;
+		    int dialogue=rand.nextInt(5)+5;
+		    System.out.println("\n\n------------------------------------------------Scene "+i+"--------------------------------------------------\n Scene type:"+sceneslist.get(y)+"\t\tNo.of Dialogue="+dialogue);
+		    director.action(sceneslist.get(y),dialogue);
+		      System.out.println("\n--------------------------------------------------------------------------------------------------------\n"); 
+		   }
+		 director.cut();	  
+	}
+	  public void Sceneslist( int choice,String type)
+	  {
+       int hx;
+	   for(int k=0;k<(scene/2);k++)
+	          {
+              sceneslist.add(type);
+              }
+	        int m= scene-(scene/2);
+           for(int k=0;k<m-1;k++)
+               {do{
+          	    hx=rand.nextInt(scenes.length);
+          	}while(hx==(choice-1));
+            	sceneslist.add(scenes[hx]);
+               }
+           Collections.shuffle(sceneslist);
+            sceneslist.add(type);
+         
+	  }  
+	  public void display()
+	  {
+	  	ScriptWriter scriptWriter=new ScriptWriter();
 		String movieName=scriptWriter.getScriptName();
 		System.out.println("Movie name:"+movieName);
-        Director director=new Director();
+        
         String directorName=director.getName();
 		System.out.println("Directed by "+directorName);
         Producer producer=new Producer();
@@ -15,29 +67,5 @@ public class Movie
 		System.out.println("Produced by "+producerName);
 		String scriptWriterName=scriptWriter.getName();
 		System.out.println("Story written by "+scriptWriterName);
-	    Random rand=new Random();
-	    int scene=rand.nextInt(5)+5;
-		System.out.println("Movie has "+scene+" Scene");
-		String type=null;
-		System.out.print("\n1.Sad\n2.Happy\n3.Comedy\n4.Mass\n5.Romantic\nSelect the Movie type:");
-		int choice=in.nextInt();
-		switch(choice)
-		    {
-		    	case 1:type="sad";break;
-		    	case 2:type="happy";break;
-		    	case 3:type="comedy";break;
-		    	case 4:type="mass";break;
-		    	case 5:type="romantic";break;
-		    	default: System.out.print("Error!!");break;
-		    }
-		director.casting();
-		for(int i=1;i<=scene;i++)
-		   {
-		    int dialogue=rand.nextInt(5)+5;
-		    System.out.println("\n\n\t\tScene "+i+"\n Scene type:"+type+"\t\tNo.of Dialogue="+dialogue);
-		    director.action(type,dialogue);
-		    director.cut();	    
-		   }
-		 
-	}
+	  }               
 }
