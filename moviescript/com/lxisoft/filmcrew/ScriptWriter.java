@@ -1,4 +1,5 @@
 package com.lxisoft.filmcrew;
+import com.lxisoft.test.*;
 import java.io.*;
 import java.util.*;
 public class ScriptWriter
@@ -38,6 +39,10 @@ public void script(String type)throws Exception
 	String c=null;
 	String d=null;
 	String e=null;
+	
+	try
+	{
+	
 		
 	while((b=br.readLine())!=null)
 {	
@@ -78,10 +83,17 @@ public void script(String type)throws Exception
 	}
 	
 	Random rand=new Random();
-	int x=rand.nextInt(5)+2;
-	
+	//int x=rand.nextInt(5)+2;
+	int r=rand.nextInt(5)+5;
+	//int r=(int)(Math.random()*8);
 	//List<String>givenList=new ArrayList("Hero","Heroine","Villain","Comedian");
-	
+		//throw new MyException();
+		
+	for(int j=0;j<r;j++)
+	{
+		System.out.println("--------------------------------------------SCENE "+(j+1)+"-------------------------------------------------------");
+		System.out.println(" ");
+		int x=rand.nextInt(5)+2;
 	for(int i=0;i<x;i++)
 	{
 		String[] a={"Hero","Heroine","Villain","Comedian"};
@@ -97,19 +109,23 @@ public void script(String type)throws Exception
 		if(randomElement.equals("Hero"))
 		{
 			System.out.println("Hero:"+hero.get(0));
+			System.out.println(" ");
 		}
 		
 		else if(randomElement.equals("Heroine"))
 		{
 			System.out.println("Heroine:"+heroine.get(0));
+			System.out.println(" ");
 		}
 		else if(randomElement.equals("Villain"))
 		{
 		System.out.println("Villain:"+villain.get(0));
+		System.out.println(" ");
 		}
 		else
 		{
 			System.out.println("Comedian:"+comedian.get(0));
+			System.out.println(" ");
 		}
 		
 		/*System.out.println("Hero:"+hero.get(0));
@@ -117,6 +133,13 @@ public void script(String type)throws Exception
 		System.out.println("Heroine:"+heroine.get(0));
 		System.out.println("Comedian:"+comedian.get(0));*/
 	}
+	}
+	throw new MyException();
+  }
+  catch(MyException ex)
+  {
+	//System.out.println(ex);
+  }	
 
 }
 }
