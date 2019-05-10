@@ -57,7 +57,7 @@ public class MovieScript
     public void createDialogue() throws ArrayIndexOutOfBoundsException
     {
     	int x =0;
-    	dialogue.setComic(new String[10]);
+    	    	dialogue.setComic(new String[10]);
     	dialogue.setRomantic(new String[10]);
     	dialogue.setAction(new String[10]);
 
@@ -93,8 +93,8 @@ public class MovieScript
 		
 	}
     	dialogue.getComic()[x] = line;
-/*    	System.out.println(x+dialogue.getComic()[x]+"mmmmm");
-*/    	}
+    	System.out.println(x+dialogue.getComic()[x]+"mmmmm");
+    	}
        else if(i==2)
        {
        	if(x==10){
@@ -109,9 +109,9 @@ public class MovieScript
     			x=0;
     		}
     		dialogue.getAction()[x]=line;
-    	/*System.out.println(x+line+"zzzzzzzzzz");
+    	System.out.println(x+line+"zzzzzzzzzz");
     	System.out.println( dialogue.getAction()[x]+"%%%%%%%%%%%%%%");
-     */  }
+       }
     	else if(i==3)
     	{
     		if(x==10){
@@ -126,7 +126,7 @@ public class MovieScript
     			x=0;
     		}
     	dialogue.getRomantic()[x]=line;
-   // 	System.out.println(x+dialogue.getRomantic()[x]+"000000000000");
+    	System.out.println(x+dialogue.getRomantic()[x]+"000000000000");
        }
 
     	x++;
@@ -148,33 +148,32 @@ public class MovieScript
          }
        public void display()
            {
-           	int count=1;
-           	do{
-            System.out.println("\t\t\t\t\t\tSceene :"+count);
+            System.out.println("Secene ");
             for(int k=0;k<10;k++)
              {
-       	int j=((int)(Math.random()*3+2));
+       	for(int j=3;j<5;j++)
+       	{
             System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"   : "+dialogue.getComic()[k]);
-       
+       }
        
            }
            for(int k=0;k<10;k++)
            {
-           	int j=((int)(Math.random()*2));
+           	for(int j=0;j<3;j++)
+           	{
                 System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"  : "+dialogue.getRomantic()[k]);
 
-           	
+           	}
            }
            for(int k=0;k<10;k++)
            	{
-           		int j=((int)(Math.random()*2+5));
+           		for(int j=5;j<7;j++)
+           		{
             System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"   : "+dialogue.getAction()[k]);
 
-           		
-           	} 
-           	count++;
-           }
-           	while (count<=5);
+           		}
+           	}
+           	
 
 
 }
