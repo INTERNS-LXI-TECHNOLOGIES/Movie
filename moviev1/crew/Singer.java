@@ -10,4 +10,8 @@ public class Singer
 	{
 		return name;
 	}
+	public void singSong()
+	{
+		
+	}
 }

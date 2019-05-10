@@ -16,12 +16,12 @@ public class ScriptWriter
 	{
 		return name;
 	}
-	public void writeScript(MovieScript ms)
+	public void writeScript(Movie movie)
 	{
-		ms.setTitle("Pookaalam Varavayi");
-		ms.getDirector().setName("Lal Jose");
+		movie.setTitle("Pookaalam Varavayi");
+		movie.getDirector().setName("Lal Jose");
 		name="Lal";
-		ms.setType("Romantic comedy");
+		movie.setType("Romantic comedy");
 	}
 	public Role addCharacters()
 	{

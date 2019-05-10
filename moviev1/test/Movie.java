@@ -1,9 +1,30 @@
 package com.lxisoft.moviev1.test;
-import java.util.Scanner;
+import com.lxisoft.moviev1.crew.*;
+import java.util.*;
 public class Movie
 {
-	Scanner scan=new Scanner(System.in);
+	private String title;
+	private String type;
 	private MovieScript ms;
+	private Director director;
+	private ArrayList <Singer> singers;
+	Scanner scan=new Scanner(System.in);
+	public void setTitle(String title)
+	{
+		this.title=title;
+	}
+	public String getTitle()
+	{
+		return title;
+	}
+	public void setType(String type)
+	{
+		this.type=type;
+	}
+	public String getType()
+	{
+		return type;
+	}
 	public void setMs(MovieScript ms)
 	{
 		this.ms=ms;
@@ -12,9 +33,26 @@ public class Movie
 	{
 		return ms;
 	}
+	public void setDirector(Director director)
+	{
+		this.director=director;
+	}
+	public Director getDirector()
+	{
+		return director;
+	}
+	public void setSingers(ArrayList <Singer> singers)
+	{
+		this.singers=singers;
+	}
+	public ArrayList <Singer> getSingers()
+	{
+		return singers;
+	}
 	public Movie()
 	{
-		ms=new MovieScript();
+		setMs(new MovieScript());
+		setDirector(new Director());
 	}
 	public void doMovie()
 	{
@@ -25,16 +63,25 @@ public class Movie
 		{
 			case 1:
 			do{
-			System.out.println("1.Add characters\n2.Cast \n3.Add scene");
+			System.out.println("1.Add characters\n2.Cast \n3.Crew\n4.Add scene");
 			switch(scan.nextInt())
 			{
 				case 1://ms.scriptDetails();
 				ms.characterDetails();
 				break;
 				case 2:
+				try
+				{
 				ms.castDetails();
+				}
+				catch(MyException m)
+				{
+				m.printStackTrace();
+				}
 				break;
 				case 3:
+				break;
+				case 4:
 				ms.createScenes();
 				break;
 				default:System.out.println("Wrong choice");

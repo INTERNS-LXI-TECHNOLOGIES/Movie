@@ -12,6 +12,4 @@ public class Scene
 	{
 		return no;
 	}
-	
-	
 }

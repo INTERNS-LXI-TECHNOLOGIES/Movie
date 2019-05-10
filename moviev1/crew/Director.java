@@ -69,4 +69,8 @@ public class Director
 			return actor;
 		
 	}
+	public void selectSingers()
+	{
+		
+	}
 }

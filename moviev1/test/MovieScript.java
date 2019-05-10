@@ -6,9 +6,6 @@ import java.io.*;
 import java.util.*;
 public class MovieScript
 {
-	private String title;
-	private String type;
-	private Director director;
 	private ScriptWriter sw;
 	private ArrayList <Actor> actors;
 	private ArrayList <Role> roles;
@@ -16,30 +13,6 @@ public class MovieScript
 	private ArrayList <Dialogue> dialogues;
 	Random random;
 	Scanner scan=new Scanner(System.in);
-	public void setTitle(String title)
-	{
-		this.title=title;
-	}
-	public String getTitle()
-	{
-		return title;
-	}
-	public void setType(String type)
-	{
-		this.type=type;
-	}
-	public String getType()
-	{
-		return type;
-	}
-	public void setDirector(Director director)
-	{
-		this.director=director;
-	}
-	public Director getDirector()
-	{
-		return director;
-	}
 	public void setSw(ScriptWriter sw)
 	{
 		this.sw=sw;
@@ -82,7 +55,6 @@ public class MovieScript
 	}
 	public MovieScript()
 	{
-	setDirector(new Director());
 	setSw(new ScriptWriter());
 	setRoles(new ArrayList <Role>());
 	setActors(new ArrayList <Actor>());
@@ -137,8 +109,9 @@ public class MovieScript
 			e.printStackTrace();
 		}
 	}
-	public void castDetails()
+	public void castDetails() throws MyException
 	{
+		Movie movie=new Movie();
 		int index=0;
 		try
 		{
@@ -148,19 +121,13 @@ public class MovieScript
 		do{
 		System.out.println("actors in the movie:");
 		System.out.println("1.Hero\n2.Heroine\n3.Comedian\n4.Villain");
-		actors.add(director.selectCast());
+		actors.add(movie.getDirector().selectCast());
 		System.out.println("add actors press 1");
 		}
 		while(scan.nextInt()==1);
 		if(roles.size()!=actors.size())
 		{
-			try{
 			throw new MyException("Not casting actors for all characters");
-			}
-			catch(MyException m)
-			{
-				m.printStackTrace();
-			}
 		}
 		for(int i=0;i<actors.size();i++)
 		{
@@ -273,26 +240,39 @@ public class MovieScript
 				dialogue.setLine(data);
 				dialogues.add(dialogue);
 				}
+			if("scene"+(j+1)+".txt"=="scene3.txt")
+			{
+				for(int m=0;m<dialogues.size();m++)
+				{
+					
+					System.out.println(dialogues.get(m).getLine());
+				}
+				
+			}
+			else{
 			System.out.println("Scene"+(j+1));
 			List<String> d = new ArrayList<>();
 			int c = 0;
 			List<String> s=new ArrayList<>();
 			for(int n=0;n<dialogues.size();n++)
 			{
-				s.add(roles.get(n).getRoleName());
+				int index=random.nextInt(roles.size());
+				s.add(roles.get(index).getRoleName());
 			}
-			Collections.shuffle(s);
+			//Collections.shuffle(s);
 			for(int k=0;k<dialogues.size();k++)
 			{
 				
 				d.add(dialogues.get(k).getLine());
 				
 			}
+			
 			Collections.shuffle(d);
 			for(int l=0;l<d.size();l++)
 			{
 			System.out.print(s.get(l)+":");
 			System.out.println(d.get(l));	
+			}
 			}
 		}
 		}
@@ -303,11 +283,12 @@ public class MovieScript
 	}
 	public void scriptPlay(MovieScript ms)
 	{
-		sw.writeScript(ms);
-		System.out.print("Movie title:"+title+"\n");
-		System.out.print("Director:"+director.getName()+"\n");
+		Movie movie=new Movie();
+		sw.writeScript(movie);
+		System.out.print("Movie title:"+movie.getTitle()+"\n");
+		System.out.print("Director:"+movie.getDirector().getName()+"\n");
 		System.out.print("Script Writer:"+sw.getName()+"\n");
-		System.out.print("Movie type:"+type+"\n");
+		System.out.print("Movie type:"+movie.getType()+"\n");
 		System.out.println("Cast:");
 		System.out.println("Charactername\t\t\t\tCastname");
 		selectCharacters();
