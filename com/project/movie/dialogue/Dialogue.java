@@ -2,39 +2,39 @@ package com.project.movie.dialogue;
 import java.util.*;
 public class Dialogue
 {
-	private String[] comic;
-	private String[] action;
-	private String[] romantic;
-	private String[] negative;
-	public void setComic(String[] comic)
+	private List<String> comic=new ArrayList<String>();
+	private List<String> action=new ArrayList<String>();
+	private List<String> romantic=new ArrayList<String>();
+	private List<String> negative=new ArrayList<String>();
+	public void setComic(ArrayList<String> comic)
 	{
       this.comic=comic;
 	}
-	public void setAction(String[] action)
+	public void setAction(ArrayList<String> action)
 	{
 		this.action=action;
 	}
-	public void setRomantic(String[] romantic)
+	public void setRomantic(ArrayList<String> romantic)
 	{
 		this.romantic=romantic;
 	}
-	public void setNegative(String[] negative)
+	public void setNegative(ArrayList<String> negative)
 	{
 		this.negative=negative;
 	}
-	public String[] getComic()
+	public List<String> getComic()
 	{
 		return comic;
 	}
-	public String[] getAction()
+	public List<String> getAction()
 	{
 		return action;
 	}
-	public String[] getRomantic()
+	public List<String> getRomantic()
 	{
 		return romantic;
 	}
-	public String[]getNegative()
+	public List<String> getNegative()
 	{
 		return negative;
 	}

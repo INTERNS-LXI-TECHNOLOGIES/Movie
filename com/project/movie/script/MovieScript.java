@@ -3,10 +3,12 @@ import com.project.movie.cast.*;
 import com.project.movie.dialogue.*;
 import java.util.*;
 import java.io.*;
+import javax.sound.sampled.*;
+
 public class MovieScript
 {
 	
-	private Dialogue dialogue =new Dialogue();
+	private List<Dialogue> dialogue =new ArrayList<>();
 	private Scriptwritter writter;
 	private String director="Rafi";
 	private List <Cast>castList = new ArrayList<>();
@@ -151,31 +153,21 @@ public class MovieScript
            	int count=1;
            	do{
             System.out.println("\t\t\t\t\t\tSceene :"+count);
-            for(int k=0;k<10;k++)
-             {
+            for(int k=0;k<=((int)(Math.random()*9+1));k++)
+            {
        	int j=((int)(Math.random()*3+2));
             System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"   : "+dialogue.getComic()[k]);
-       
-       
-           }
-           for(int k=0;k<10;k++)
-           {
-           	int j=((int)(Math.random()*2));
-                System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"  : "+dialogue.getRomantic()[k]);
-
-           	
-           }
-           for(int k=0;k<10;k++)
-           	{
-           		int j=((int)(Math.random()*2+5));
-            System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"   : "+dialogue.getAction()[k]);
-
-           		
-           	} 
+           	int n=((int)(Math.random()*2));
+            System.out.println("\n\n"+"   "+castList.get(n).getRoleName()+"  : "+dialogue.getRomantic()[k]);
+           	int l=((int)(Math.random()*2+5));
+            System.out.println("\n\n"+"   "+castList.get(l).getRoleName()+"   : "+dialogue.getAction()[k]);
+          	}
            	count++;
            }
-           	while (count<=5);
+           	while (count<=7);
 
 
 }
+
+
 }	
