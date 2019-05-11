@@ -13,11 +13,13 @@ return name;
 
 public void script(String type)throws Exception
 {
+	
 	ArrayList<String> hero=new ArrayList<String>();
 	ArrayList<String> heroine=new ArrayList<String>();
 	ArrayList<String> villain=new ArrayList<String>();
 	ArrayList<String> comedian=new ArrayList<String>();
 	
+		
 	File f=new File("hero.txt");
 	FileReader fr=new FileReader(f);
 	BufferedReader br=new BufferedReader(fr);
@@ -40,8 +42,6 @@ public void script(String type)throws Exception
 	String d=null;
 	String e=null;
 	
-	try
-	{
 	
 		
 	while((b=br.readLine())!=null)
@@ -82,13 +82,17 @@ public void script(String type)throws Exception
 		}
 	}
 	
+	
 	Random rand=new Random();
 	//int x=rand.nextInt(5)+2;
+	try
+	{
+	
 	int r=rand.nextInt(5)+5;
 	//int r=(int)(Math.random()*8);
 	//List<String>givenList=new ArrayList("Hero","Heroine","Villain","Comedian");
 		//throw new MyException();
-		
+	
 	for(int j=0;j<r;j++)
 	{
 		System.out.println("--------------------------------------------SCENE "+(j+1)+"-------------------------------------------------------");
@@ -96,7 +100,7 @@ public void script(String type)throws Exception
 		int x=rand.nextInt(5)+2;
 	for(int i=0;i<x;i++)
 	{
-		String[] a={"Hero","Heroine","Villain","Comedian"};
+		String[] a={"Stephen","Manju","Bobby","Suraj"};
 		int randomIndex=rand.nextInt(a.length);
 		String randomElement=a[randomIndex];
 		
@@ -106,26 +110,30 @@ public void script(String type)throws Exception
 		Collections.shuffle(heroine);
 		Collections.shuffle(comedian);
 		
-		if(randomElement.equals("Hero"))
+		if(randomElement.equals("Stephen"))
 		{
-			System.out.println("Hero:"+hero.get(0));
+			System.out.println("Stephen:"+hero.get(0));
 			System.out.println(" ");
+			
 		}
 		
-		else if(randomElement.equals("Heroine"))
+		else if(randomElement.equals("Manju"))
 		{
-			System.out.println("Heroine:"+heroine.get(0));
+			System.out.println("Manju:"+heroine.get(0));
 			System.out.println(" ");
+			
 		}
-		else if(randomElement.equals("Villain"))
+		else if(randomElement.equals("Bobby"))
 		{
-		System.out.println("Villain:"+villain.get(0));
+		System.out.println("Bobby:"+villain.get(0));
 		System.out.println(" ");
+		
 		}
 		else
 		{
-			System.out.println("Comedian:"+comedian.get(0));
+			System.out.println("Suraj:"+comedian.get(0));
 			System.out.println(" ");
+			
 		}
 		
 		/*System.out.println("Hero:"+hero.get(0));
@@ -134,11 +142,14 @@ public void script(String type)throws Exception
 		System.out.println("Comedian:"+comedian.get(0));*/
 	}
 	}
-	throw new MyException();
+	throw new MyException("Exception");
   }
-  catch(MyException ex)
+  catch(MyException x)
   {
 	//System.out.println(ex);
+	System.out.println("caught");
+	System.out.println(x.getMessage());
+	 //System.out.println("In the catch clock due to Exception = "+x);
   }	
 
 }
