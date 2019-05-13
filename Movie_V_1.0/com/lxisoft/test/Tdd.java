@@ -9,8 +9,10 @@ import com.lxisoft.scriptwriter.Script;
 class Tdd{
 	
 	public static void main(String[] args){
-	Film film = new Film();
+	Film film=new Film();
 	film.displaymovie();
+	
+	
 	
 	//Script script=new Script();
 	//script.creatingScene();
