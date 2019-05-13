@@ -147,8 +147,8 @@ public void script(String type)throws Exception
   catch(MyException x)
   {
 	//System.out.println(ex);
-	System.out.println("caught");
-	System.out.println(x.getMessage());
+	//System.out.println("caught");
+	//System.out.println(x.getMessage());
 	 //System.out.println("In the catch clock due to Exception = "+x);
   }	
 

@@ -37,6 +37,7 @@ do
 	System.out.println("2.Romantic scene");
 	System.out.println("3.Sad scene");
 	System.out.println("4.Comedy scene");
+	System.out.println("5.Romantic song of hero and heroine");
 	System.out.println(" ");
 	 System.out.print("Enter your choice:");
 	 choice=scan.nextInt();
@@ -57,9 +58,11 @@ do
 				  case 4:type="comedy";
 				  writer.script(type);
 				  break;
+				  case 5:director.directSong();
+				  break;
 				  default:System.out.println("Invalid choice made...please try again...!!!");
 			
 			  }
-}while(choice>4);
+}while(choice>5);
 }
 }
