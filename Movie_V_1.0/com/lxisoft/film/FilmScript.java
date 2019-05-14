@@ -14,29 +14,25 @@ private String name;
 Director director;
 
 ScriptWriter scriptwriter;
-//public File file = null;
-//public ArrayList<Dialogue> dialogues;
 private ArrayList<Scene> scenes;
 public ArrayList<Actor> roles;
 static Scanner in=new Scanner(System.in);
 
 public void setScenes(ArrayList<Scene> scenes){
-	this.scenes=scenes;
+  this.scenes=scenes;
 } 
 public ArrayList<Scene> getScenes(){
-	return scenes;
+  return scenes;
 }
 public Director createDirector(){
-	director = new Director("Fazil");
-	//System.out.println(director);
-
-	return director;
+  director = new Director("Fazil");
+  
+  return director;
 }
 public ScriptWriter createScriptwriter(){
-	scriptwriter = new ScriptWriter("Aravind");
-	//System.out.println(scriptwriter.getName());
+  scriptwriter = new ScriptWriter("Aravind");
 
-	return scriptwriter;
+  return scriptwriter;
 }
 public void setFilm(){
   System.out.println("                      "+"moviename :"+filmName);
@@ -45,7 +41,6 @@ public void setFilm(){
 }
 
 
-//public ArrayList<Actor> actors = new ArrayList<Actor>();
 public ArrayList<Actor> comedians=new ArrayList<Actor>();
 public ArrayList<Actor> villains=new ArrayList<Actor>();
 public ArrayList<Actor> mainActors=new ArrayList<Actor>();
@@ -76,26 +71,18 @@ public void setNewCharectors(){
   System.out.println("1.villain\n2.comedian\n3.mainActor");
   int a = in.nextInt();
     if(a==1){
-     // Actor actor=new Actor();
       Scanner in=new Scanner(System.in);
       System.out.println("Enter the actor name ");
       String name=in.next();
-      //actor.setName(name);
-      
       System.out.println("Enter the charector name ");
       String charector=in.next();
-      
-      //actor.setCharectorName(charector);
       getNewVillain(name,charector);
       display();
-      //villains.add(actor);
     }
     else if(a==2){
       Scanner in=new Scanner(System.in);
       System.out.println("Enter the actor name ");
       String name=in.next();
-      //actor.setName(name);
-      
       System.out.println("Enter the charector name ");
       String charector=in.next();
       getNewComedian(name,charector);
@@ -107,9 +94,7 @@ public void getNewVillain(String name,String charector){
   try{
     int count=count();
 
-      //FileReader reader=new FileReader("villain.properties");
       Properties p=new Properties();
-      //p.load(reader);
 
       p.setProperty("name"+(count/4),name);
       p.setProperty("charector"+(count/4),charector);
@@ -121,12 +106,6 @@ public void getNewVillain(String name,String charector){
       System.out.print(p.getProperty("charector"+(count/4)));
       System.out.println("\n");
       display();
-
-  
- //for(int i=0;i<villains.size();i++){
- 
-  //System.out.println("negative actors:"+villains.get(i).getName()+"\t\tcharactor name:"+villains.get(i).getCharectorName());
-  //}
 }
 catch(FileNotFoundException e){
 
@@ -187,9 +166,7 @@ public int count()
 public void getNewComedian(String name,String charector){
   try{
       int count1=count1();
-      //FileReader reader=new FileReader("db.properties");
       Properties p=new Properties();
-      //p.load(reader);
       p.setProperty("name"+(count1/4),name);
       p.setProperty("charector"+(count1/4),charector);
       p.store(new FileWriter("comedian.properties",true)," ");
@@ -275,10 +252,13 @@ public void createMainActor(Actor mainActor,String name,String charector){
 }
  public void setScene()
     {
-      System.out.println("*****************************");
-      System.out.println("                            scene 1                        ");
-
+      System.out.println("*************************************************************");
+      System.out.println("                            Comedy Scene                     ");
+      System.out.println("*************************************************************");
       try{
+      for(int x=1;x<5;x++){
+      System.out.println("                            Scene"+x);  
+      
         int count=count();
      File file=new File("Comedy.csv");
   
@@ -291,41 +271,29 @@ public void createMainActor(Actor mainActor,String name,String charector){
        Dialogue d=new Dialogue();
        d.setDialogue(data);
        comedyDialogues.add(d);
-
-       //System.out.println(actors.size());
-       //System.out.println("************************************");
-      
-     
-       //System.out.println(data);
        count++;
      }
-     //Collections.shuffle(comedians);
-     for(int i=0;i<2;i++){
-     //for(int k=(int)(Math.random()*3);k<comedians.size();k++){
+     for(int i=0;i<3;i++){
       Collections.shuffle(comedyDialogues);
       Collections.shuffle(comedians);
-       // System.out.println(comedy.size());
-      //int j=(int)(Math.random()*4);
       System.out.println( comedians.get(i).getCharectorName()+":"+comedyDialogues.get(i).getDialogue());
-      //System.out.println(comedyDialogues.get(j).getDialogue());
-      
-    // }
-   }
-
-     //}
-
-     //System.out.println(count);
+      comedyDialogues.remove(comedyDialogues.get(i).getDialogue());
+      }
+}
     }
     catch(FileNotFoundException e){
 
     }
     catch(IOException e){
 
-    }
-      System.out.println("*****************************");
-      System.out.println("                            scene 2                        ");
-
+    
+  }
+      System.out.println("*****************************************************************");
+      System.out.println("                            Romantic Scene                       ");
+      System.out.println("*****************************************************************");
       try{
+        for(int y=1;y<5;y++){
+          System.out.println("                            Scene"+y); 
         int count=0;
         File file=new File("Romance.csv");
   
@@ -341,14 +309,13 @@ public void createMainActor(Actor mainActor,String name,String charector){
         count++;
         }
         for(int i=0;i<2;i++){
-        //for(int k=0;k<mainActors.size();k++){
         Collections.shuffle(romanticDialogues);
-        Collections.shuffle(mainActors);
-        int j=(int)(Math.random()*2);
-        System.out.println( mainActors.get(j).getCharectorName()+":"+romanticDialogues.get(i).getRomantic());
-     
+        //Collections.shuffle(mainActors);
+        //int j=(int)(Math.random()*2);
+        System.out.println( mainActors.get(i).getCharectorName()+":"+romanticDialogues.get(i).getRomantic());
 
       }
+    }
     }
     catch(FileNotFoundException e){
 
@@ -356,23 +323,20 @@ public void createMainActor(Actor mainActor,String name,String charector){
     catch(IOException e){
 
     }
-      System.out.println("*****************************");
-      System.out.println("                            scene 3                        ");
+      System.out.println("**************************************************************");
+      System.out.println("                            Song Scene                        ");
+      System.out.println("**************************************************************");
       System.out.println("(nayika on the way to meet nayakan)");
       System.out.println("\t(nayakan waiting for nayika at the park)");
       try{
-        //int count=0;
         File file=new File("song.csv");
   
-        FileReader f=new FileReader(file);
+        FileReader f=new FileReader(file); 
         BufferedReader b=new BufferedReader(f);
      
         String data;
-        //ArrayList<Dialogue> villainDialogues=new ArrayList <Dialogue>();
         while((data = b.readLine())!= null){
         System.out.println(data);
-        //count++;
-    
     }
   }
 
@@ -382,9 +346,12 @@ public void createMainActor(Actor mainActor,String name,String charector){
     catch(IOException e){
 
     } 
-      System.out.println("*****************************");
-      System.out.println("                            scene 4                        ");
+      System.out.println("****************************************************************");
+      System.out.println("                            Action Scene                        ");
+      System.out.println("****************************************************************");
      try{
+      for(int z=1;z<5;z++){
+        System.out.println("                            Scene"+z                        );
         int count=0;
         File file=new File("Action.csv");
   
@@ -399,22 +366,23 @@ public void createMainActor(Actor mainActor,String name,String charector){
         villainDialogues.add(d2);
         count++;
         }
-        for(int k=0;k<villainDialogues.size();k++){
-        //for(int k=0;k<villains.size();k++){                                                                
-        int j=(int)(Math.random()*villains.size());
-        int i=(int)(Math.random()*villainDialogues.size());
-        if(i!=i+1 && j!=j+1){
-        Collections.shuffle(villains);
+        for(int k=0;k<3;k++){                                                              
+        //int j=(int)(Math.random()*villains.size());
+        //int i=(int)(Math.random()*villainDialogues.size());
+        //if(int i!=i+1 && int j!=j+1){
         Collections.shuffle(villainDialogues);
-
-        System.out.println(villains.get(j).getCharectorName()+":"+villainDialogues.get(i).getAction());
-        //System.out.println(villainDialogues.get(j).getAction());
-        i++;
-        j++;
-        }
+        Collections.shuffle(villains);
+        System.out.println(villains.get(k).getCharectorName()+":"+villainDialogues.get(k).getAction());
+        System.out.println(mainActors.get(0).getCharectorName()+":"+villainDialogues.get(k).getAction());
+        //i++;
+        //j++;
+        //}
 
       }
+    }
+        System.out.println("**************************************************************");
         System.out.println("\n                          The End..........                 ");
+        System.out.println("**************************************************************");
     }
 
     catch(FileNotFoundException e){
