@@ -88,7 +88,8 @@ public void script(String type)throws Exception
 	try
 	{
 	
-	int r=rand.nextInt(5)+5;
+	int r=rand.nextInt(3)+5;
+	String element=null;
 	//int r=(int)(Math.random()*8);
 	//List<String>givenList=new ArrayList("Hero","Heroine","Villain","Comedian");
 		//throw new MyException();
@@ -104,7 +105,9 @@ public void script(String type)throws Exception
 		int randomIndex=rand.nextInt(a.length);
 		String randomElement=a[randomIndex];
 		
-		
+		if(randomElement!=element)
+		{
+		 element=randomElement;
 		Collections.shuffle(hero);
 		Collections.shuffle(villain);
 		Collections.shuffle(heroine);
@@ -134,6 +137,10 @@ public void script(String type)throws Exception
 			System.out.println("Suraj:"+comedian.get(0));
 			System.out.println(" ");
 			
+		}
+		}
+		else{
+			//System.out.println("Error");
 		}
 		
 		/*System.out.println("Hero:"+hero.get(0));
