@@ -22,12 +22,5 @@ public class Actor
 	{
 		return characterName;
 	}
-/*	public void setCharacterType(String characterType)
-	{
-		this.characterType=characterType;
-	}
-	public String getCharacterType()
-	{
-		return characterType;
-	}*/
+
 }

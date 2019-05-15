@@ -8,7 +8,7 @@ public class Script
 {
 
 	//private Dialogue dialogue =new Dialogue();
-	private  String writterName="Benny";
+	private  String writterName="BENNY";
 	private String filmName="ABCD";
 	/*Hero hero=new Hero();
 	Heroine heroine =new Heroine();
@@ -29,6 +29,7 @@ public class Script
 		return this.filmName;
 	}
 	
+
 }
 
-
+	

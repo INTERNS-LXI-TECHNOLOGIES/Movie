@@ -11,31 +11,24 @@ public class Director
  	Heroine heroine =new Heroine();
   	Villain villain =new Villain();
  	Comedian comedian =new Comedian();
- 	Script script=new Script();
-	Scanner Scan=new Scanner(System.in);
-	private String directorName="Rafi";
+ 	//Script script=new Script();
+ 	//ScriptWriter writer=new ScriptWriter();
+
+	//Scanner Scan=new Scanner(System.in);
+	private String directorName="RAFI";
 	String actorName;
 	String characterName;
-	ArrayList <String> dialog=new ArrayList <String> ();
-	Scanner scan=new Scanner(System.in);
+
+	ArrayList <Dialogue> dialog=new ArrayList <Dialogue> ();
+	ArrayList <String> dial=new ArrayList <String> ();
+	ArrayList <String> actorList= new ArrayList <String>();
+	
 	Random Random=new Random();
 	public String getDirectorName()
 	{
 		return directorName;
 	}
-	public void movieType()
-	{
-		System.out.println("Your Movie Type");
-		System.out.println("1.Romantic\n2.Action\n3.Comic");
-		System.out.print("Select your choice:");
-		int choice=Scan.nextInt();
-		System.out.println("Film Name :"+script.getFilmName());
-		System.out.println("Directoe Name :"+getDirectorName());
-		System.out.println("Script WritterName :"+script.getWritterName());
-		casting();
-		//script.createDialogue(choice);
-		dialogueDeliver(choice);
-	}
+
 
  public void casting()
    {
@@ -58,45 +51,87 @@ public class Director
 	    String hcNameList []={"Mohan","Sagar"};
 	    characterName=(hcNameList[new Random().nextInt(hcNameList.length)]);
 	    hero.setCharacterName(characterName);
+	    actorList.add(characterName);
 
 	    String heNameList []={"Indhu","Priya"};
 	    characterName=(heNameList[new Random().nextInt(heNameList.length)]);
 	    heroine.setCharacterName(characterName);
+	    actorList.add(characterName);
 
 	    String cNameList []={"Pappi","Dude"};
 	    characterName=(cNameList[new Random().nextInt(cNameList.length)]);
 	    comedian.setCharacterName(characterName);
+	    actorList.add(characterName);
 
 	    String vNameList []={"Shankar","Hyna"};
 	    characterName=(vNameList[new Random().nextInt(vNameList.length)]);
 	    villain.setCharacterName(characterName);
+	    actorList.add(characterName);
 
 
-	    System.out.println("Staring\n\tHero:"+hero.getActorName()+" As "+hero.getCharacterName()+"\n\tHeroine:"+heroine.getActorName()+" As "+heroine.getCharacterName()+"\n\tVillain:"+villain.getActorName()+" As "+villain.getCharacterName()+"\n\tComedian:"+comedian.getActorName()+" As "+comedian.getCharacterName());
+	    System.out.println("Staring\n\tHero    :\t"+hero.getActorName()+" As "+hero.getCharacterName()+"\n\tHeroine :\t"+heroine.getActorName()+" As "+heroine.getCharacterName()+"\n\tVillain :\t"+villain.getActorName()+" As "+villain.getCharacterName()+"\n\tComedian:\t"+comedian.getActorName()+" As "+comedian.getCharacterName());
+    	
     }
- 	public void dialogueDeliver(int choice)
+    public ArrayList<String> getList()
+    {
+    	return actorList;
+    }
+
+ 	/*public void dialogueFile(int choice)throws Exception
 	{
-	try
+		//try
+		//{
+			FileWriter fw=new FileWriter("prop.properties",true);
+			FileReader fr=new FileReader("prop.properties");
+			Properties p=new Properties();
+			p.load(fr);
+			if (choice==1||choice==2||choice==3)
+			{
+
+				String c="file"+choice;
+						String fileName=p.getProperty(c);
+						File file=new File(fileName);
+						dialogueDeliver(dialog,file);
+			}
+			else if (choice==4)
+			{
+				for(int k=1;k<=3;k++)
+				{
+					String S="file"+k;
+					String fileName=p.getProperty(S);
+					File file=new File(fileName);
+					dialogueDeliver(dialog,file);
+				}
+			}
+			else
+				{
+					System.out.println("Invalid Choice");
+				}
+		/*}
+		catch(FileNotFoundException e)
+    	    {
+        		e.printStackTrace();
+        	}
+        	catch(IOException e)
+         	{
+    			e.printStackTrace();
+         	}*/
+ /*   }
+  	public void dialogueDeliver(ArrayList <Dialogue> dialog,File file)throws Exception
 	{
-		FileWriter fw=new FileWriter("prop.properties",true);
-		FileReader fr=new FileReader("prop.properties");
-		Properties p=new Properties();
-		p.load(fr);
-		if (choice==1||choice==2||choice==3)
-		{
-			File file=new File("file"+choice);
+			FileWriter fw=new FileWriter(file,true);
        		FileReader fR=new FileReader(file);
             BufferedReader bR=new BufferedReader(fR);
    	        String line;
    	        int i=0;
    	        Actor actor=new Actor();
-			Dialogue dialogue= new Dialogue();
+			//Dialogue dialogue= new Dialogue();
    	          
     		while ((line=bR.readLine())!=null)
     		{
-    			dialog.add(line);
-    			line=dialog.get(Random.nextInt(dialog.size()));
-    		      					
+    			dial.add(line);
+    			//line=dial.get(Random.nextInt(dial.size()));
+    		     // line=Collections.shuffle(dial, new Random(1));					
         			String charList[]={"Hero","Comedian","Heroine","Villain"};
         			String character=(charList[new Random().nextInt(charList.length)]);
         			String name=null;
@@ -116,13 +151,18 @@ public class Director
                 	{
                   	name=comedian.getCharacterName();
                 	}
-                
-                	System.out.println("\n"+name+":"+line);
+                  Collections.shuffle(dial);
+                 // line=dial.get(i);
+                  int k=Random.nextInt(dial.size());
+                  System.out.println("\n "+name+"\t:"+dial.get(k));
+                  dial.remove(k);
+                //	System.out.println("\n"+name+":"+line);
                 	i++;
 			}
-			fw.close();
+			//fw.close();
 		}
-		else
+		/*else
+
 		{
 			System.out.println("Invalid Choice");
 		}
@@ -136,7 +176,7 @@ public class Director
     		e.printStackTrace();
          }
      
- }
+ }*/
 
 
 }

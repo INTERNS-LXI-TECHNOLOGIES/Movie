@@ -5,9 +5,11 @@ public class Tdd
 {
 	public static void main(String[] args)throws Exception
 	{
-		Script script=new Script();
+		/*Script script=new Script();
 		Director director=new Director();
- 		director.movieType();
+ 		director.movieType();*/
+ 		Scene scene=new Scene();
+ 		scene.movieScene();
  	
  	}
 }
