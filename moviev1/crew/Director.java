@@ -58,10 +58,9 @@ public class Director
 		for(int i=0;i<actors.size();i++)
 		{
 		index=random.nextInt(actors.size());
-		
 		}
 		actor.setName(actors.get(index));
-		}
+		}  
 		catch(IOException e)
 		{
 			e.printStackTrace();
@@ -69,8 +68,23 @@ public class Director
 			return actor;
 		
 	}
-	public void selectSingers()
+	/*public void selectSinger(Singer singer)
 	{
-		
-	}
+		try{
+		String data;
+		 File file=new File("singers.txt");
+		FileWriter fw=new FileWriter(file,true);
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		while((data=br.readLine())!=null)
+		{
+			singer=new Singer();
+			singer.setName(data);
+		}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}*/
 }

@@ -54,7 +54,7 @@ public class Movie
 		setMs(new MovieScript());
 		setDirector(new Director());
 	}
-	public void doMovie()
+	public void doMovie()throws MyException
 	{
 		do
 		{
@@ -79,9 +79,19 @@ public class Movie
 				m.printStackTrace();
 				}
 				break;
+				/*case 3:
+				System.out.println("Select crew\n1.Singers");
+					switch(scan.nextInt())
+					{
+						case 1:
+						ms.selectSinger();
+						
+						break;
+						default:System.out.println("Wrong choice");
+						break;
+					}
+				break;*/
 				case 3:
-				break;
-				case 4:
 				ms.createScenes();
 				break;
 				default:System.out.println("Wrong choice");

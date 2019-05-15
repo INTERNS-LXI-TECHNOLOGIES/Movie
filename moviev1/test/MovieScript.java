@@ -88,7 +88,7 @@ public class MovieScript
 			e.printStackTrace();
 		}
 	}
-	public void selectCharacters()
+	public void selectedCharacters()
 	{
 		try{
 		File file=new File("roles.txt");
@@ -142,7 +142,7 @@ public class MovieScript
 			e.printStackTrace();
 		}
 	}
-	public void selectActors()
+	public void selectedActors()
 	{
 		try{
 		File file=new File("actors.txt");
@@ -223,7 +223,7 @@ public class MovieScript
 		Properties p = new Properties();	
 		p.load(new FileReader("prop.properties"));
 		int a = Integer.parseInt(p.getProperty("scene"));
-		System.out.println(a);
+		//System.out.println(a);
 		int size=a;
 		for(int j=0;j<a;j++)
 		{
@@ -240,24 +240,32 @@ public class MovieScript
 				dialogue.setLine(data);
 				dialogues.add(dialogue);
 				}
-			if("scene"+(j+1)+".txt"=="scene3.txt")
-			{
+			
+			System.out.println("Scene"+(j+1));
+			if(("scene"+(j+1)+".txt").equals("scene3.txt"))
+			{ 
 				for(int m=0;m<dialogues.size();m++)
 				{
-					
 					System.out.println(dialogues.get(m).getLine());
 				}
-				
 			}
-			else{
-			System.out.println("Scene"+(j+1));
+			else {
 			List<String> d = new ArrayList<>();
-			int c = 0;
+			int in = 0,c=0;
 			List<String> s=new ArrayList<>();
-			for(int n=0;n<dialogues.size();n++)
+			for(int n=0;n<roles.size();n++)
 			{
 				int index=random.nextInt(roles.size());
+				//if(in!=index){
 				s.add(roles.get(index).getRoleName());
+				//c++;
+				//}
+				in=index;
+				/*if(c==dialogues.size())
+					{
+						break;
+						
+					}*/
 			}
 			//Collections.shuffle(s);
 			for(int k=0;k<dialogues.size();k++)
@@ -271,8 +279,9 @@ public class MovieScript
 			for(int l=0;l<d.size();l++)
 			{
 			System.out.print(s.get(l)+":");
-			System.out.println(d.get(l));	
+			System.out.println(d.get(l));			
 			}
+			
 			}
 		}
 		}
@@ -281,6 +290,23 @@ public class MovieScript
 			e.printStackTrace();
 		}
 	}
+	/*public void selectedSingers(ArrayList <Singer> singers)
+	{
+		Movie movie=new Movie();
+		ArrayList<Singer> s = new ArrayList<Singer>();
+		do{
+			movie.getDirector().selectSinger(singer);
+			s.add(singer);
+			
+			System.out.println("select next one press 1");
+		}while(scan.nextInt()==1);
+		for(int i=0;i<singers.size();i++)
+		{
+			int index=random.nextInt(roles.size());
+			System.out.println(singers.get(index).getName());
+		}
+		
+	}*/
 	public void scriptPlay(MovieScript ms)
 	{
 		Movie movie=new Movie();
@@ -291,8 +317,8 @@ public class MovieScript
 		System.out.print("Movie type:"+movie.getType()+"\n");
 		System.out.println("Cast:");
 		System.out.println("Charactername\t\t\t\tCastname");
-		selectCharacters();
-		selectActors();
+		selectedCharacters();
+		selectedActors();
 		for(int i=0;i<roles.size();i++)
 		{
 			System.out.println(roles.get(i).getRoleName()+"\t\t\t\t\t"+actors.get(i).getName());
