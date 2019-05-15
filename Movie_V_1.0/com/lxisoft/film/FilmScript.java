@@ -17,6 +17,7 @@ ScriptWriter scriptwriter;
 private ArrayList<Scene> scenes;
 public ArrayList<Actor> roles;
 static Scanner in=new Scanner(System.in);
+Random random=new Random();
 
 public void setScenes(ArrayList<Scene> scenes){
   this.scenes=scenes;
@@ -277,7 +278,8 @@ public void createMainActor(Actor mainActor,String name,String charector){
       Collections.shuffle(comedyDialogues);
       Collections.shuffle(comedians);
       System.out.println( comedians.get(i).getCharectorName()+":"+comedyDialogues.get(i).getDialogue());
-      comedyDialogues.remove(comedyDialogues.get(i).getDialogue());
+      //comedyDialogues.remove(comedyDialogues.get(i).getDialogue());
+      comedyDialogues.remove(i);
       }
 }
     }
@@ -313,7 +315,7 @@ public void createMainActor(Actor mainActor,String name,String charector){
         //Collections.shuffle(mainActors);
         //int j=(int)(Math.random()*2);
         System.out.println( mainActors.get(i).getCharectorName()+":"+romanticDialogues.get(i).getRomantic());
-
+        romanticDialogues.remove(i);
       }
     }
     }
@@ -366,18 +368,22 @@ public void createMainActor(Actor mainActor,String name,String charector){
         villainDialogues.add(d2);
         count++;
         }
-        for(int k=0;k<3;k++){                                                              
+       // for(int k=0;k<3;k++){
+       for(int k=0;k<=villainDialogues.size();k++){                                                              
         //int j=(int)(Math.random()*villains.size());
         //int i=(int)(Math.random()*villainDialogues.size());
         //if(int i!=i+1 && int j!=j+1){
         Collections.shuffle(villainDialogues);
+        int m=random.nextInt(villainDialogues.size());
         Collections.shuffle(villains);
-        System.out.println(villains.get(k).getCharectorName()+":"+villainDialogues.get(k).getAction());
-        System.out.println(mainActors.get(0).getCharectorName()+":"+villainDialogues.get(k).getAction());
+        int n=random.nextInt(villains.size());
+        System.out.println(villains.get(n).getCharectorName()+":"+villainDialogues.get(m).getAction());
+       // System.out.println(mainActors.get(0).getCharectorName()+":"+villainDialogues.get(k).getAction());
+      // System.out.println(mainActors.get(0).getCharectorName()+":"+villainDialogues.get(m));
         //i++;
         //j++;
         //}
-
+        villainDialogues.remove(m);
       }
     }
         System.out.println("**************************************************************");
