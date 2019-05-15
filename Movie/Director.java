@@ -27,16 +27,19 @@ class Director{
       readComedian(n4);
       scriptWriter.script();
    }
-   public void action(String type,int dialogue)
+   public int action(String type,int dialogue,int songno)
    { 
-    String previousDialogue=null,previousName=null;
+    Movie movie=new Movie();int r=0;
+    String previousDialogue=null,previousName=null,c2="actor";
    	for(int j=0;j<dialogue;j++)
 		    {
 		    	String name=null; 
-		      Actor a=new Actor();
-          a =(actorslist.get(new Random().nextInt(actorslist.size()))); 
+		      Actor a=new Actor(); 
+          int x=new Random().nextInt(actorslist.size());
+          a =(actorslist.get(x)); 
           String dialogueSaid=a.deliverDialogue(type);
           String rol=a.getRoleName();
+          String c1=a.getRole();
           try{
              name=a.getName();
              if((name.equals(previousName)&&dialogueSaid.equals(previousDialogue))||(dialogueSaid.equals(previousDialogue)))
@@ -44,6 +47,15 @@ class Director{
                  }
              previousDialogue=dialogueSaid;
              previousName=name;
+             if((songno>0)&&(r==0))
+             {
+
+             int old=songno;
+              songno=singSong(type,c1,c2,songno);
+             if (old!=songno)
+               r=1;
+             }
+             c2=c1;
              System.out.println("\n"+rol+"("+name+"):"+dialogueSaid);
             }
             catch(DuplicationException de)
@@ -51,8 +63,10 @@ class Director{
               System.out.print(de.getMessage());
               j--;
             }
-          
+
+            
 		    }
+        return songno;
    }
    public void cut()
      { 
@@ -134,5 +148,58 @@ class Director{
          comedian.setRole(role);
          actorslist.add(comedian);
         }
-     }    
+     }  
+     public int singSong(String type,String c1,String c2,int n)
+  {
+    String song=null;         
+    try
+    {
+         FileReader fR=new FileReader("Songs.csv");  
+         BufferedReader bR=new BufferedReader(fR);
+         String line;
+         ArrayList<String> songslist=new ArrayList<String>();
+         while((line=bR.readLine())!=null)
+          {
+         String[] split = line.split(",");  
+         if(split[0].equals(type))
+           {
+           songslist.add(split[1]);
+           }
+          }
+         if(songslist.size()>0)
+          {int kk=new Random().nextInt(songslist.size());
+        song=(songslist.get(kk)); 
+      }
+     }
+    catch(IOException ex)
+    {
+
+    }
+    int ch=new Random().nextInt(2);
+   
+     if(ch%2!=0)
+     { 
+      if(((c1.equals("Hero"))&&(c2.equals("Heroine")))||((c2.equals("Hero"))&&(c1.equals("Heroine"))) )
+        {  selectSinger(); System.out.println("\n"+song+"\n");n--;System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+         }
+     else if((((c1.equals("Hero"))&&(c2.equals("Comedian")))||((c2.equals("Hero"))&&(c1.equals("Comedian"))))&&(type!="romantic"))
+         { selectSinger(); System.out.println("\n"+song);n--;System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+         } 
+     else{}
+      
+     }
+     return n;
+  }
+  public void selectSinger()
+     {
+       
+         Song song =new Song();
+         String maleSinger []={"Singer1","Singer2","Singer3","Singer4"};
+         String femaleSinger []={"Singer5","Singer6","Singer7","Singer8"};
+        // System.out.print("Hero "+i+"\nReal Name:");
+        String singer1=(maleSinger [new Random().nextInt(maleSinger.length)]); 
+        String singer2=(femaleSinger [new Random().nextInt(femaleSinger.length)]);
+        System.out.println("++++++++++++++++++++++++++++++++++++++++\n\tSingers:"+singer1+" "+singer2);
+     } 
+     
 }

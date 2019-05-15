@@ -3,12 +3,16 @@ import  java.util.*;
 public class Movie
 {
 	int scene;
+	int songNumber;
 	Random rand=new Random();
 	ArrayList<String> sceneslist=new ArrayList<String>();
 	 String scenes[]={"sad","happy","comedy","mass","romantic"};
 	 Director director=new Director(); 
+	 ScriptWriter scriptWriter=new ScriptWriter();
+	
 	public void playMovie(){
 		Scanner in =new Scanner(System.in);
+        songNumber=rand.nextInt(2)+3;
 		display();	    
 	    scene=rand.nextInt(5)+5;
 		System.out.println("Movie has "+scene+" Scene");
@@ -30,10 +34,11 @@ public class Movie
 		for(int i=1;i<=scene;i++)
 		   {int y=i-1;
 		    int dialogue=rand.nextInt(5)+5;
-		    System.out.println("\n\n------------------------------------------------Scene "+i+"--------------------------------------------------\n Scene type:"+sceneslist.get(y)+"\t\tNo.of Dialogue="+dialogue);
-		    director.action(sceneslist.get(y),dialogue);
+		    System.out.println("\n\n------------------------------------------------Scene "+i+"--------------------------------------------------\nScene type:"+sceneslist.get(y)+"\t\t\t\t\t\t\t\tNo.of Dialogue="+dialogue);
+		    songNumber=director.action(sceneslist.get(y),dialogue,songNumber);
 		      System.out.println("\n--------------------------------------------------------------------------------------------------------\n"); 
-		   }
+            }
+		   
 		 director.cut();	  
 	}
 	  public void Sceneslist( int choice,String type)
@@ -56,13 +61,11 @@ public class Movie
 	  }  
 	  public void display()
 	  {
-	  	ScriptWriter scriptWriter=new ScriptWriter();
-		String movieName=scriptWriter.getScriptName();
+	  	String movieName=scriptWriter.getScriptName();
 		System.out.println("Movie name:"+movieName);
-        
-        String directorName=director.getName();
+         String directorName=director.getName();
 		System.out.println("Directed by "+directorName);
-        Producer producer=new Producer();
+         Producer producer=new Producer();
         String producerName=producer.getName();
 		System.out.println("Produced by "+producerName);
 		String scriptWriterName=scriptWriter.getName();
