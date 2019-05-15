@@ -5,7 +5,8 @@ public class Dialogue
 	private List<String> comic=new ArrayList<String>();
 	private List<String> action=new ArrayList<String>();
 	private List<String> romantic=new ArrayList<String>();
-	private List<String> negative=new ArrayList<String>();
+	private List<String> song=new ArrayList<String>();
+
 	public void setComic(ArrayList<String> comic)
 	{
       this.comic=comic;
@@ -18,9 +19,9 @@ public class Dialogue
 	{
 		this.romantic=romantic;
 	}
-	public void setNegative(ArrayList<String> negative)
+	public void setSong(ArrayList<String> song)
 	{
-		this.negative=negative;
+		this.song=song;
 	}
 	public List<String> getComic()
 	{
@@ -34,9 +35,9 @@ public class Dialogue
 	{
 		return romantic;
 	}
-	public List<String> getNegative()
+	public List<String> getSong()
 	{
-		return negative;
+		return song;
 	}
 	
 	
