@@ -30,10 +30,17 @@ public class MovieScript
 		s.setMusic("Sangaran");
 		s.setMusicDirector("Shambu");
 
+		try{
+		System.out.println("\n\n"+"\t\t\t\t\t"+"Film name    \t :"+"* "+name+" * "+"\n\n"+"\t\t\t\t\tDirector Name    :"+director);
+		Thread.sleep(1200);
+		System.out.println("\n"+"\t\t\t\t\t"+"Script written By :"+writter.getName()+"\n\n \t\t\t SINGER        :"+s.getMusic()
+			             +"\n\n\t\t\tMusic Director :"+s.getMusicDirector());
+		Thread.sleep(1200);
+		}
+		catch(Exception e)
+		{
 
-		System.out.println("\n\n"+"Film name     :"+"*"+name+"*"+"\n\nDirector Name :"+director);
-		System.out.println("\n"+"Script written By :"+writter.getName()+"\n  singer :"+s.getMusic()
-			             +"\n Music Director :"+s.getMusicDirector());
+		}
 	 
 		createCast((Cast)new Hero(),"Mammooty","Raju");
 		createCast((Cast)new Heroin(),"Nayans","Ammu");
@@ -55,7 +62,7 @@ public class MovieScript
 		created.setActorName(actorName);
 		created.setRoleName(roleName);
 		castList.add(c);
-        System.out.println("\n"+created.getActorName()+" Playing Role as   "+c.getRoleName());
+        System.out.println("\n\n"+created.getActorName()+" Playing Role as   "+c.getRoleName());
 
 	}
     public void createDialogue() throws ArrayIndexOutOfBoundsException
@@ -82,46 +89,23 @@ public class MovieScript
 	{
 		if(x==10)
 		{
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-		/*try
-		{
-		Thread.sleep(1000);
+		x=0;
 		}
-		catch(Exception e)
-		{
-		}*/
-			x=0;
-		
-	}
 	this.comic.add(line);
    	}
        else if(i==2)
        {
-       	if(x==10){
-       		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-		/*try
-		{
-		Thread.sleep(1000);
-		}
-		catch(Exception e)
-		{
-		}*/
-    			x=0;
+       	if(x==10)
+       	{
+       	 x=0;
     		}
     		this.action.add(line);
       }
     	else if(i==3)
     	{
-    		if(x==10){
-    				System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-		/*try
-		{
-		Thread.sleep(1000);
-		}
-		catch(Exception e)
-		{
-		}
-    		*/	x=0;
+    		if(x==10)
+    		{
+    		x=0;
     		}
     	this.romantic.add(line);
        }
@@ -129,18 +113,10 @@ public class MovieScript
        {
        	if(x==36)
        	{
-       		/*try
-       		{
-       			Thread.sleep(1500);
-       		}
-       		catch(Exception e)
-       		{
-       		}*/
-       	
-       		x=0;
+  	x=0;
        	}
        	this.song.add(line);
-       	System.out.println(line);
+       	//System.out.println(line);
        }
 
     	x++;
@@ -171,12 +147,12 @@ public class MovieScript
            		try{
             System.out.println("\n\n\t\t*******Sceene :"+count+"*******");
             Thread.sleep(2000);
-            for(int k=0;k<=((int)(Math.random()*9+1));k++)
+            for(int k=0;k<((int)(Math.random()*9+1));k++)
             {
        	int j=((int)(Math.random()*3+2));
             System.out.println("\n\n"+"   "+castList.get(j).getRoleName()+"   : "+dialogue.getComic().get(k));
           	  Thread.sleep(1000);
-          	  comic.remove(k);
+          	  comic.remove(k);   
            	int n=((int)(Math.random()*2));
             System.out.println("\n\n"+"   "+castList.get(n).getRoleName()+"  : "+dialogue.getRomantic().get(k));
                Thread.sleep(1000);
@@ -187,11 +163,12 @@ public class MovieScript
                 action.remove(k);
                 if(count==2)
                 {
-                	System.out.println("\t\t\t   SONG.....");
+                	System.out.println("\n\n\t\t\t\t  SONG.....");
                 	for(int s=0;s<36;s++)
                 	{
 
-                	System.out.println(dialogue.getSong().get(s+1));
+                	System.out.println("\n\t"  +dialogue.getSong().get(s+1));
+                	Thread.sleep(1200);
                 	
                 	
                 	}
