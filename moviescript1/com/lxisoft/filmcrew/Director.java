@@ -66,7 +66,9 @@ public void directSong()throws Exception
 	for(int i=0;i<3;i++)
 {
 System.out.println("Hero : "+hero.get(i));
+System.out.println("  ");
 System.out.println("Heroine : "+heroine.get(i));
+System.out.println("  ");
 }	
 	
 }
