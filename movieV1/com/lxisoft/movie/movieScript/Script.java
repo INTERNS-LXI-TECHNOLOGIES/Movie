@@ -7,6 +7,5 @@ public class Script
 		System.out.println("SCRIPTWRITER~  Mouly");
         Scene scene=new Scene();
 	    scene.createScene();
-		
    }
 }
