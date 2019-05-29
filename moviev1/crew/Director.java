@@ -10,6 +10,7 @@ public class Director
 	InputStreamReader r=new InputStreamReader(System.in);  
 	BufferedReader br=new BufferedReader(r);
 	Random random=new Random();
+	String c;
 	public void setName(String name)
 	{
 		this.name=name;
@@ -21,6 +22,7 @@ public class Director
 	public Actor selectCast()
 	{
 		ArrayList<String> actors=new ArrayList<String>();
+		Set<String> s=new HashSet<String>();
 		Actor actor=null;
 		int index=0;
 		try{
@@ -35,7 +37,6 @@ public class Director
 		case 2:
 		actor= new Heroine();
 		file=new File("heroines.txt");
-		
 		break;
 		case 3:
 		actor=new Comedian();
@@ -60,6 +61,7 @@ public class Director
 		index=random.nextInt(actors.size());
 		}
 		actor.setName(actors.get(index));
+		s.add(actors.get(index));
 		}  
 		catch(IOException e)
 		{
@@ -68,23 +70,16 @@ public class Director
 			return actor;
 		
 	}
-	/*public void selectSinger(Singer singer)
+	public String getCast()
 	{
 		try{
-		String data;
-		 File file=new File("singers.txt");
-		FileWriter fw=new FileWriter(file,true);
-		FileReader fr=new FileReader(file);
-		BufferedReader br=new BufferedReader(fr);
-		while((data=br.readLine())!=null)
-		{
-			singer=new Singer();
-			singer.setName(data);
-		}
+		System.out.println("Which actor you want to edit:");
+		c=br.readLine();
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
-	}*/
+		return c;
+	}
 }

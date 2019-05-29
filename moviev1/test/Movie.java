@@ -61,9 +61,13 @@ public class Movie
 		System.out.println("1.Edit Script\n2.Play Script");
 		switch(scan.nextInt())
 		{
+		case 1:
+		System.out.println("1.Add\n2.Delete\n3.Update");
+		switch(scan.nextInt())
+		{
 			case 1:
 			do{
-			System.out.println("1.Add characters\n2.Cast \n3.Crew\n4.Add scene");
+			System.out.println("1.Add characters\n2.Cast \n3.Add scene\n4.Add dialogues");
 			switch(scan.nextInt())
 			{
 				case 1://ms.scriptDetails();
@@ -79,20 +83,11 @@ public class Movie
 				m.printStackTrace();
 				}
 				break;
-				/*case 3:
-				System.out.println("Select crew\n1.Singers");
-					switch(scan.nextInt())
-					{
-						case 1:
-						ms.selectSinger();
-						
-						break;
-						default:System.out.println("Wrong choice");
-						break;
-					}
-				break;*/
 				case 3:
 				ms.createScenes();
+				break;
+				case 4:
+				ms.addDialogues();
 				break;
 				default:System.out.println("Wrong choice");
 				break;
@@ -101,10 +96,51 @@ public class Movie
 			}while(scan.nextInt()==1);
 			break;
 			case 2:
-			ms.scriptPlay(ms);
+			System.out.println("1.Remove characters\n2.Remove Cast \n3.Remove scene\n4.Remove dialogues");
+			switch(scan.nextInt())
+			{
+				case 1:
+				ms.removeCharacters();
+				break;
+				case 2:
+				ms.removeCasts();
+				break;
+				case 3:
+				ms.deleteScene();
+				break;
+				case 4:
+				ms.removeDialogues();
+				break;
+				default:System.out.println("Wrong choice");
+				break;
+			}
+			break;
+			case 3:
+			System.out.println("1.Change characters\n2.Change Cast \n3.Change dialogues");
+			switch(scan.nextInt())
+			{
+				case 1:
+				ms.changeCharacters();
+				break;
+				case 2:
+				ms.changeCasts();
+				break;
+				case 3:
+				ms.changeDialogues();
+				break;
+				default:System.out.println("Wrong choice");
+				break;
+			}
 			break;
 			default:System.out.println("Wrong choice");
 			break;
+		}
+		break;
+		case 2:
+		ms.scriptPlay(ms);
+		break;
+		default:System.out.println("Wrong choice");
+		break;
 		}
 		System.out.println("To Select again press 1");
 		}while(scan.nextInt()==1);

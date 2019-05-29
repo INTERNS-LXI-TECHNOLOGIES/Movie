@@ -8,6 +8,7 @@ public class ScriptWriter
 	Scanner scan=new Scanner(System.in);
 	InputStreamReader r=new InputStreamReader(System.in);  
 	BufferedReader br=new BufferedReader(r);
+	String c;
 	public void setName(String name)
 	{
 		this.name=name;
@@ -56,20 +57,24 @@ public class ScriptWriter
 		}
 		return dialogue;
 	}
-	/*public Role selectCharacters()
+	public String getCharacter()
 	{
-		System.out.print("Select characters for each scene:");
-		Role role = new Role();
-		try
-		{
-		role.setRoleName(br.readLine());
+		try{
+		System.out.print("Which character you want to edit :");
+		c=br.readLine();
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
-		return role;
-		
-	}*/
+		return c;
+	}
+	public String getScene()
+	{
+		System.out.print("which scene:");
+		c=scan.next();
+		return c;
+	}
+
 }
 		
